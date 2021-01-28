@@ -1,33 +1,27 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
- > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
- 
- > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
- 
- > ## Expectations
- > * Incorporate **at least two** distinct design patterns. You need to include at least *one* design pattern that we will teach this session:
- >   * Composite, Strategy, Abstract Factory, Visitor, or Decorator
- > * All design patterns need to be linked together (it can't be two distinct projects)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
+# Chess Game
+
+ Authors: [Carolina Mena](https://github.com/cmena004),[Yuteng Terrence Wu](https://github.com/YTTWu),[Vraj Patel](https://github.com/vpate3356)
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+
+ Why is it important or interesting to you?
+  Chess is interesting due to many factors, one being that it is a complex game that requires analytical and strategic thinking. This is similar to programming which also requires logical thinking and evaluation of all moves which can affect the entire process. There are many possible combinations and strategies to play a game of chess and likewise in programming there are various ways to create a program. 
+  
+ What languages/tools/technologies do you plan to use? 
+ C++, hammer. 
+ 
+ What will be the input/output of your project?
+  Input: Two users will each take turns on deciding where to move their individual chess pieces on the game board by using algebraic notation.   
+  Output: Each player's moves and which coordinates their pieces move to will be displayed in the program.  Once the game is won by one of the two players,the player's name will be displayed as the winner. 
+  *There will be no visual game board; the moves will be made using algebraic notation. 
+  
+ What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
+ 1. Composite
+   We picked this pattern because we will have a collection of objects that we want to treat the same. Each piece will inherent from an abstract class with the basic components of a chess piece. A challenge we might encounter that can be resolved by using the composite pattern is building each piece's function. Then we will build an individual class for each type of piece, with unique functions and restriction. 
+  
+ 2. Strategy 
+  We picked this pattern to define each piece's movement since strategy patterns are used to manage algorithms and relationships between objects. Each individual piece will have its own move function implemenetation that is unique to it. A problem we will anticipate is making each piece move how its supposed to. To solve this, we will have a base abstract class which all classes can extend and have their own move implementations. 
+ 
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 

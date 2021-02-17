@@ -26,6 +26,16 @@ We will use the visitor pattern to check if every move made is valid, this patte
  
  ![OMT Diagram](https://github.com/cs100/final-project-cmena004-ywu352-vpate048/blob/master/ChessGame%20without%20notes.jpg?raw=true)
  
+Class diagram description:
+
+The diagram begins with ChessGame which will contain the methods to start the game(startGame()) and decide the winner(decideWinner()). This will also contain two player object to create player 1(*player_1) and 2(*player_2), as well as a board object(*board).
+
+The Board class will contain a printBoard()(print out the board visually) and printChessPieces()(a 2D vector visually). The vector will contain all 32 chess pieces. It will also contain a private member that is an object of ChessPiece. 
+
+Player will contain a move function that will determine current position and where the player wants to move to. 
+
+We will use a visitor and strategy pattern for our chess game. The strategy pattern will be used for the class ChessPiece. We use strategy pattern to decide what move() function to implement depend on the players choice. The visitor pattern will be used to check each move and determine if it is valid, it will also determine if there is a check or checkmate.
+ 
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II

@@ -24,7 +24,7 @@ We will use the visitor pattern to check if every move made is valid, this patte
 
 ## Class Diagram
  
- ![name-of-you-image](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#G1xdUTNlrTJjHRZWhzBYEz9IAEIxN_fLW7)
+ ![OMT Diagram](https://github.com/cs100/final-project-cmena004-ywu352-vpate048/blob/master/ChessGame%20without%20notes.jpg?raw=true)
  
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 

@@ -11,8 +11,8 @@ We plan on using C++ for our game via hammer.
 
  Our game will have the following input and ouput:
   Input: Two users will each take turns on deciding where to move their individual chess pieces on the game board by using algebraic notation.   
-  Output: Each player's moves and which coordinates their pieces move to will be displayed in the program.  Once the game is won by one of the two players,the player's name will be displayed as the winner. 
-  *There will be no visual game board; the moves will be made using algebraic notation. 
+  Output: Each player's moves and which coordinates their pieces move to will be displayed on a 2d board in the program. The board will be printed after every move.  Once the game is won by one of the two players,the player's name will be displayed as the winner. 
+ 
   
  We will implement the following design patterns:
  1. Composite

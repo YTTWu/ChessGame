@@ -8,7 +8,7 @@ Board *ChessBoard;
 
 public:
 ChessGame():
-hessGame();
+~ChessGame();
 void startGame();
 void decideWinner();
 

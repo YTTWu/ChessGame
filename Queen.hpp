@@ -2,8 +2,8 @@
 #define Queen_hpp
 #include <stdio.h>
 #include "ChessPiece.hpp"
-#include "Visitor.hpp"
 
+class Visitor;
 
 class Queen : public ChessPiece
 {
@@ -14,12 +14,12 @@ private:
     char q;
 
 public:
-    Queen(char d_X, char d_Y, char d_Color);
+    Queen(char d_X, char d_Y, char d_Color, char d_Q);
     ~Queen();
     char getQueen_X();
     char getQueen_Y();
-    char setQueen_X();
-    char setQueen_Y();
+    void setQueen_X(char x);
+    void setQueen_Y(char y);
     char getQueen_Color();
     virtual bool accept(Visitor *pV, char d_X, char d_Y);
 

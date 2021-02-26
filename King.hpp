@@ -2,7 +2,8 @@
 #define King_hpp
 #include <stdio.h>
 #include "ChessPiece.hpp"
-#include "Visitor.hpp"
+
+class Visitor;
 
 class King : public ChessPiece
 {
@@ -13,12 +14,12 @@ private:
     char k;
 
 public:
-    King(char d_X, char d_Y, char d_Color);
+    King(char d_X, char d_Y, char d_Color, char d_K);
     ~King();
     char getKing_X();
     char getKing_Y();
-    char setKing_X();
-    char setKing_Y();
+    void setKing_X(char x);
+    void setKing_Y(char y);
     char getKing_Color();
     virtual bool accept(Visitor *pV, char d_X, char d_Y);
 

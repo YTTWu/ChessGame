@@ -2,35 +2,35 @@
 
 #include "Knight.hpp"
 
-Knight::Knight(char d_x, char d_y, char p_color) : kn_X(d_x), kn_Y(d_y), color(p_color)
+Knight::Knight(int d_x, int d_y, char p_color) : kn_X(d_x), kn_Y(d_y), color(p_color)
 {
     this->name = 'K';
 }
 
 Knight::~Knight(){}
 
-void Knight::setKnight_X(char x)
+void Knight::set_X(char x)
 {
     this->kn_X = x;
 }
 
-void Knight::setKnight_Y(char y)
+void Knight::set_Y(char y)
 {
     this->kn_Y = y;
 }
 
 
-char Knight::getKnight_X()
+char Knight::get_X()
 {
     return kn_X;
 }
 
-char Knight::getKnight_Y()
+char Knight::get_Y()
 {
     return kn_Y;
 }
 
-char Knight::getKnight_Color()
+char Knight::get_Color()
 {
     return color;
 }

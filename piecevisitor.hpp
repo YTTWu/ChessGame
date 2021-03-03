@@ -99,13 +99,37 @@ public:
     
     bool visitQueen(Queen queen, char d_x, char d_y )
     {
-        
+        int temp_x = queen->getQueen_X();
+        int temp_y = queen->getQueen_Y();
+        int xIncrement;
+        int yIncrement;
+       if((temp_x != d_x || temp_y != d_y) ){ // if not going side to side or up(diagonal)*/
+            if(temp_x = d_x  && (abs(d_y - temp_y)<=7)){   // going up or down
+                return true;
+            }
+            if(temp_y = d_y  && (abs(d_x - temp_x)<=7)){ // side
+                return true;
+            }  
+        } 
+        else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)){ //diagonal
+                return true;
+            }
+        else {return false;}
     }
      
     
     bool visitKing(King king, char d_x, char d_y)
     {
-        
+     	if (abs(d_x - king->getX()) == 1)
+		if (abs(thatSpace->getY() - king->getY()) == 1)
+		{
+			thatSpace->setSpace(thisKing);
+			thisKing->setEmpty();
+			return true;
+		}
+		else return false;
+	else return false;
+    }   
     }
      
      

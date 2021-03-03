@@ -11,15 +11,54 @@
 class ChessPiece
 {
 public:
-    bool virtual move(char hor, char ver) = 0; //define unique move for each pieces. Inside move() we call accept to check if the move is valid.
-    char virtual getHorizontal();
-    char virtual getVertical();
+    void set_X(int x_)
+    {
+        x = x_;
+    }
+    
+    void set_Y(int y_)
+    {
+        y = y_;   
+    }
+    
+    void set_color(char color_)
+    {
+        color = color_;   
+    }
+    
+    void set_name(char name_)
+    {
+        name = name_;   
+    }
+    
+    int get_X()
+    {
+        return x;    
+    }
+    
+    int get_Y()
+    {
+        return y;   
+    }
+    
+    char get_color()
+    {
+        return color;
+    }
+    
+    char get_name()
+    {
+        return name;
+    }
+    
+    
     bool virtual accept(Visitor *pV);
     
-    
-    
-    
-    
+protected:
+    int x;
+    int y;
+    char color;
+    char name;
     
 };
 

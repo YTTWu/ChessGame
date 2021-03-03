@@ -11,7 +11,7 @@
 class Knight : public ChessPiece
 {   
 public:
-    Knight(int x_, int y_, char color, char name);
+    Knight(int x, int y, char color, char name);
     bool accept(Visitor *pV);
     
     

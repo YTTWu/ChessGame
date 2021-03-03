@@ -1,7 +1,7 @@
 
 
 #include "Pawn.hpp"
-#include "PieceVisitor.hpp"
+#include "visitor.hpp"
 
 Pawn::Pawn(int x, int y, char color, char name)
 {

@@ -32,15 +32,15 @@ public:
         
         if(pawn->getPawn_isMoved() == true)
         {
-            if(d_x == temp_x && d_y - temp_y == 1)
+            if(d_x == temp_x && abs(d_y - temp_y) == 1)
             {
                 return true;
             }
-            if(d_x - temp_x == -1 && d_y - temp_y == 1)
+            if(d_x - temp_x == -1 && abs(d_y - temp_y) == 1)
             {
                 return true;
             }
-            if(d_x - temp_x == 1 && d_y - temp_y == 1)
+            if(d_x - temp_x == 1 && abs(d_y - temp_y) == 1)
             {
                 return true;
             }
@@ -51,11 +51,11 @@ public:
         }
         else
         {
-            if(d_x == temp_x && d_y - temp_y == 1)
+            if(d_x == temp_x && abs(d_y - temp_y) == 1)
             {
                 return true;
             }
-            else if(d_x == temp_x && d_y - temp_y == 2)
+            else if(d_x == temp_x && abs(d_y - temp_y) == 2)
             {
                 return true;
             }

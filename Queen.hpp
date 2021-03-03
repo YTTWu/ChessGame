@@ -10,7 +10,7 @@ class Queen : public ChessPiece
 
 public:
      Queen(int x, int y, char color, char name);
-     bool accept(Visitor *pV);
+     bool accept(Visitor *pV, int d_x, int d_y);
 };
 
 #endif /* Queen_hpp */

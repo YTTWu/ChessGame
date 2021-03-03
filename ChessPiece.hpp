@@ -57,7 +57,7 @@ public:
     }
     
     
-    bool virtual accept(Visitor *pV);
+    virtual bool accept(Visitor *pV, int d_x, int d_y);
     
 };
 

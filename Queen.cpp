@@ -10,7 +10,7 @@ Queen::Queen(int x, int y, char color, char name)
     set_name(name);
 }
 
-bool Queen::accept(Visitor *pV, int d_x, char d_y)
+bool Queen::accept(Visitor *pV, int d_x, int d_y)
 {
     if(pV->visitQueen(this,d_x,d_y))
     {

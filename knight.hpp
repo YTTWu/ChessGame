@@ -12,24 +12,24 @@ class Knight : public ChessPiece
 {
     
 private:
-    char kn_X;
-    char kn_Y;
+    int kn_X;
+    int  kn_Y;
     char color;
     char name;
     
 public:
-    Knight(char d_x, char d_y, char p_color);
+    Knight(int d_x, int d_y, char p_color);
     
     ~Knight();
     
     bool move(char d_hor, char d_ver);
     
-    void setKnight_X(char x);
-    void setKnight_Y(char y);
+    void setKnight_X(int x);
+    void setKnight_Y(int y);
     
-    char getKnight_X();
-    char getKnight_Y();
-    char getKnight_Color();
+    char get_X();
+    char get_Y();
+    char get_Color();
     
     bool accept(Visitor *pV);
     

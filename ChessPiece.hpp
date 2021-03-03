@@ -1,19 +1,64 @@
 #ifndef ChessPiece_hpp
 #define ChessPiece_hpp
 
-#include <stdio.h>
-#include "Visitor.hpp"
-#include "PieceVisitor.hpp"
 
-class ChessPiece 
+#include <stdio.h>
+#include "visitor.hpp"
+
+
+class ChessPiece
 {
 
+protected:
+    int x;
+    int y;
+    char color;
+    char name;
+
 public:
-    virtual bool move(char x, char y) = 0;
-    virtual bool accept(Visitor *pV);
-    virtual bool setMove(Movement *new_piece);
-    void print();
-   
-};
+    void set_X(int x_)
+    {
+        x = x_;
+    }
     
-#endif /* ChessPiece_hpp */
+    void set_Y(int y_)
+    {
+        y = y_;   
+    }
+    
+    void set_color(char color_)
+    {
+        color = color_;   
+    }
+    
+    void set_name(char name_)
+    {
+        name = name_;   
+    }
+    
+    int get_X()
+    {
+        return x;    
+    }
+    
+    int get_Y()
+    {
+        return y;   
+    }
+    
+    char get_color()
+    {
+        return color;
+    }
+    
+    char get_name()
+    {
+        return name;
+    }
+    
+    
+    bool virtual accept(Visitor *pV);
+    
+};
+
+#endif

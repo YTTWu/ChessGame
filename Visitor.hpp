@@ -13,12 +13,12 @@
 
 class Visitor
 {
-    bool visitKing(King king, char x, char y){}
-    bool visitQueen(Queen queen, char x, char y){}
-    bool visitBishop(Bishop bishop, char x, char y){}
-    bool visitKnight(Knight knight, char x, char y){}
-    bool visitRook(Rook rook, char x, char y){}
-    bool visitPawn(Pawn pawn, char x, char y){}
+    bool visitKing(King *king, int x, int y);
+    bool visitQueen(Queen *queen, int x, int y);
+    bool visitBishop(Bishop *bishop, int x, int y);
+    bool visitKnight(Knight *knight, int x, int y);
+    bool visitRook(Rook *rook, int x, int y);
+    bool visitPawn(Pawn *pawn, int x, int y);
     
 };
 

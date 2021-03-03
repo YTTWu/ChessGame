@@ -1,37 +1,17 @@
 #include "King.hpp"
 #include "Visitor.hpp"
 
-King::King(char d_X, char d_Y, char d_color, char d_K)
+King::King(int x, int y, char color, char name)
 {
-    this->k_X = d_X;
-    this->k_Y = d_Y;
-    this->k_Color = d_color;
-    this->k = d_K;
+    set_X(x);
+    set_Y(y);
+    set_color(color);
+    set_name(name);
 }
-King::~King(){}
-char King::getKing_X()
+
+ bool King::accept(Visitor *pV, char d_x, char d_y)
 {
-    return k_X;
-}
-char King::getKing_Y()
-{
-    return k_Y;
-}
-void King::setKing_X(char x)
-{
-    this->k_X = x;
-}
-void King::setKing_Y(char y)
-{
-    this->k_X = y;
-}
-char King::getKing_Color()
-{
-    return k_Color;
-}
- bool King::accept(Visitor *pV, char d_X, char d_Y)
-{
-    if(pV->visitKing(this,d_X,d_Y))
+    if(pV->visitKing(this,d_x,d_y))
     {
         return true;
     }

@@ -7,23 +7,10 @@ class Visitor;
 
 class Queen : public ChessPiece
 {
-private:
-    char q_X;
-    char q_Y;
-    char q_Color;
-    char q;
 
 public:
-    Queen(char d_X, char d_Y, char d_Color, char d_Q);
-    ~Queen();
-    char getQueen_X();
-    char getQueen_Y();
-    void setQueen_X(char x);
-    void setQueen_Y(char y);
-    char getQueen_Color();
-    virtual bool accept(Visitor *pV, char d_X, char d_Y);
-
-
+     Queen(int x, int y, char color, char name);
+     bool accept(Visitor *pV);
 };
 
 #endif /* Queen_hpp */

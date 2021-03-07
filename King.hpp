@@ -2,6 +2,7 @@
 #define King_hpp
 #include <stdio.h>
 #include "ChessPiece.hpp"
+#include "Visitor.hpp"
 
 class Visitor;
 

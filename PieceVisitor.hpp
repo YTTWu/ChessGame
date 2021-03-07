@@ -2,8 +2,7 @@
 #define PieceVisitor_hpp
 
 #include <stdio.h>
-#include <cmath>
-#include <iostream>
+#include <math.h>
 #include "Visitor.hpp"
 
 class Visitor;
@@ -12,7 +11,7 @@ class PieceVisitor : public Visitor
 {
 
 public:
-    PieceVisitor();
+   
     
     bool visitKing(King *king, int d_x, int d_y)
     {
@@ -35,8 +34,8 @@ public:
             else return false;
     }
     
-    bool visitQueen(Queen *queen, int d_x, int d_y){}
-    bool visitBishop(Bishop *bishop, int d_x, int d_y)
+    /*bool visitQueen(Queen *queen, int d_x, int d_y){}
+     bool visitBishop(Bishop *bishop, int d_x, int d_y)
     {
             
             int temp_x = bishop->get_X();
@@ -49,10 +48,10 @@ public:
                 else return false;
     
     }
-   bool visitKnight(Knight *knight, int d_x, int d_y){}
-   bool visitRook(Rook *rook, int d_x, int d_y){}
-   bool visitPawn(Pawn *pawn, int d_x, int d_y){}
-    
+     bool visitKnight(Knight *knight, int d_x, int d_y){}
+     bool visitRook(Rook *rook, int d_x, int d_y){}
+    bool visitPawn(Pawn *pawn, int d_x, int d_y){}
+    */
 };
 
 

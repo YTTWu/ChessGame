@@ -17,14 +17,14 @@ We plan on using C++ for our game via hammer.
  We will implement the following design patterns:
   
  1. Strategy -
-We chose this pattern to define each piece's movement since strategy patterns are used to manage algorithms and relationships between objects. Each individual piece will have its own move function implemenetation that is unique to it. A problem we will anticipate is making each piece move how its supposed to. To solve this, we will have a base abstract class which all classes can extend and have their own move implementations. 
+We chose this pattern to define each piece's movement since strategy patterns are used to manage algorithms and relationships between objects. Each individual piece will have its accept function implemenetation that is unique to it. A problem we will anticipate is making each piece move how its supposed to. To solve this, we will have a base abstract class which all classes can extend and have their own move implementations. 
  
  2. Visitor - 
-We will use the visitor pattern to check if every move made is valid, this pattern will also determine if there is a check or a checkmate. 
+We will use the visitor pattern to check if every move made is valid, this pattern will also determine if there is a check or a checkmate. Inside each type of pieces we have a accept method corresponded with the visit method. Since we have 6 different type we will have 6 unique visit method to check the user desired move is whether allowed within the Chess rule.
 
 ## Class Diagram
  
- ![OMT Diagram](https://github.com/cs100/final-project-cmena004-ywu352-vpate048/blob/master/ChessGame%20without%20notes.jpg?raw=true)
+ ![OMT Diagram](https://github.com/cs100/final-project-cmena004-ywu352-vpate048/blob/master/ChessGame-v2.jpg?raw=true)
  
 Class diagram description:
 

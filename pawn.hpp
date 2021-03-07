@@ -6,6 +6,7 @@
 #include "visitor.hpp"
 
 
+
 class Pawn : public ChessPiece
 {
 private:
@@ -16,6 +17,7 @@ public:
     
     bool getPawn_isMoved();
     void setPawn_isMoved();
+
     
 };
 

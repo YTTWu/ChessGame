@@ -52,7 +52,7 @@ public:
     }
     
     
-    bool virtual accept(Visitor *pV);
+    bool virtual accept(Visitor *pV, int d_x, int d_y) = 0;
     
 protected:
     int x;

@@ -1,7 +1,7 @@
-
 #ifndef PieceVisitor_hpp
 #define PieceVisitor_hpp
 
+#include <math.h>
 
 
 
@@ -12,36 +12,37 @@ class PieceVisitor : public Visitor
     
 public:
     
-    PieceVisitor();
-    
-    
-    bool visitKnight(Knight *knight, char d_x, char d_y)
+    bool visitKnight(Knight *knight, int d_x, int d_y)
     {
-        
+        return false;
     }
      
-    bool visitBishop(Bishop *bishop, char d_x, char d_y)
+    bool visitBishop(Bishop *bishop, int d_x, int d_y)
     {
-        
+        return false;
     }
-     
-    bool visitPawn(Pawn *pawn, char d_x, char d_y)
-    {
-        int temp_x = pawn->getPawn_X();
-        int temp_y = pawn->getPawn_Y();
         
-        if(pawn->getPawn_isMoved() == true)
+    
+    bool visitPawn(Pawn *pawn, int d_x, int d_y)
+    {
+        int temp_x = pawn->get_X();
+        int temp_y = pawn->get_Y();
+        
+        if(pawn->getPawn_isMoved() == false)
         {
             if(d_x == temp_x && abs(d_y - temp_y) == 1)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             if(d_x - temp_x == -1 && abs(d_y - temp_y) == 1)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             if(d_x - temp_x == 1 && abs(d_y - temp_y) == 1)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             else
@@ -67,10 +68,11 @@ public:
         
     }
     
+  /*  
     bool visitRook(Rook *rook, char d_x, char d_y)
     {
-        int temp_x = rook->getRook_X();
-        int temp_y = rook->getRook_Y();
+        int temp_x = rook->get_X();
+        int temp_y = rook->get_Y();
         int temp;
         
         if(d_x == temp_x)
@@ -80,7 +82,7 @@ public:
             {
                 return true;
             }
-            
+        
             return false;
         }
         if(d_y == temp_y)
@@ -99,18 +101,18 @@ public:
     
     bool visitQueen(Queen queen, char d_x, char d_y )
     {
-        int temp_x = queen->getQueen_X();
-        int temp_y = queen->getQueen_Y();
+        int temp_x = queen->get_X();
+        int temp_y = queen->get_Y();
         int xIncrement;
         int yIncrement;
-       if((temp_x != d_x || temp_y != d_y) ){ // if not going side to side or up(diagonal)*/
+       if((temp_x != d_x || temp_y != d_y) ){ // if not going side to side or up(diagonal)
             if(temp_x = d_x  && (abs(d_y - temp_y)<=7)){   // going up or down
                 return true;
             }
             if(temp_y = d_y  && (abs(d_x - temp_x)<=7)){ // side
                 return true;
-            }  
-        } 
+            }
+        }
         else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)){ //diagonal
                 return true;
             }
@@ -120,23 +122,21 @@ public:
     
     bool visitKing(King king, char d_x, char d_y)
     {
-     	if (abs(d_x - king->getX()) == 1)
-		if (abs(thatSpace->getY() - king->getY()) == 1)
-		{
-			thatSpace->setSpace(thisKing);
-			thisKing->setEmpty();
-			return true;
-		}
-		else return false;
-	else return false;
-    }   
+         if (abs(d_x - king->get_X()) == 1)
+        if (abs(thatSpace->get_Y() - king->get_Y()) == 1)
+        {
+            thatSpace->setSpace(thisKing);
+            thisKing->setEmpty();
+            return true;
+        }
+        else return false;
+    else return false;
     }
-     
-     
+    }
+*/     
+
 };
 
 
-
-#endif 
-
+#endif
 

@@ -2,7 +2,15 @@
 #include "Board.hpp"
 
 
-Board::Board(){}
+Board::Board(){
+ // assign board with nullptr first 
+    for(unsigned int i = 0; i < 8; i++){
+        for(unsigned int j = 0; j < 8; j++){
+            board[i][j] = nullptr;
+        }
+    }
+}
+ 
 Board::~Board(){}
 
 ChessPiece* Board::GetPiece(int x, int y){
@@ -11,42 +19,39 @@ ChessPiece* Board::GetPiece(int x, int y){
 }
 
 void Board::resetBoard(){
-
-    white = w;
-    black = b;
     //building piece objects
-    Rook* r1 = new Rook(0,0, black, R);
-    Rook* r2 = new Rook(0,7, black, R);
-    Rook* r3 = new Rook(7,0, white, r);
-    Rook* r4 = new Rook(7,7,white, r);
-    Knight* n1 = new Knight(0,1,black, N);
-    Knight* n2 = new Knight(0,6,black, N);
-    Knight* n3 = new Knight(7,1, white, n);
-    Knight* n4 = new Knight(7,6,white, n);
-    Bishop* b1 = new Bishop(0,2, black, B);
-    Bishop* b2 = new Bishop(0,5, black, B);
-    Bishop* b3 = new Bishop(7,2,white, b);
-    Bishop* b4 = new Bishop(7,5,white, b);
-    King* k1 = new King(0,3, black, K);
-    King* k2 = new King(7,3,white, k);
-    Queen* q1 = new Queen(0,4, black, Q);
-    Queen* q2 = new Queen(7,4,white, q);
-    Pawn *p1 = new Pawn(1,0,black, P);
-    Pawn *p2 = new Pawn(1,1,black, P);
-    Pawn *p3 = new Pawn(1,2,black, P);
-    Pawn *p4 = new Pawn(1,3,black, P);
-    Pawn *p5 = new Pawn(1,4,black, P);
-    Pawn *p6 = new Pawn(1,5,black, P);
-    Pawn *p7 = new Pawn(1,6,black, P);
-    Pawn *p8 = new Pawn(1,7,black, P);
-    Pawn *p9 = new Pawn(6,0,white, p);
-    Pawn *p10 = new Pawn(6,1,white, p);
-    Pawn *p11 = new Pawn(6,2,white, p);
-    Pawn *p12 = new Pawn(6,3,white, p);
-    Pawn *p13 = new Pawn(6,4,white, p);
-    Pawn *p14 = new Pawn(6,5,white, p);
-    Pawn *p15 = new Pawn(6,6,white, p);
-    Pawn *p16 = new Pawn(6,7,white, p);
+     ChessPiece* r1 = new Rook(0,0, 'b', 'R');
+    ChessPiece* r2 = new Rook(0,7, 'b', 'R');
+    ChessPiece* r3 = new Rook(7,0, 'w', 'r');
+    ChessPiece* r4 = new Rook(7,7,'w', 'r');
+    ChessPiece* n1 = new Knight(0,1,'b', 'N');
+   ChessPiece* n2 = new Knight(0,6, 'b', 'N');
+   ChessPiece* n3 = new Knight(7,1, 'w', 'n');
+    ChessPiece* n4 = new Knight(7,6,'w', 'n');
+    ChessPiece* b1 = new Bishop(0,2, 'b', 'B');
+   ChessPiece* b2 = new Bishop(0,5, 'b', 'B');
+    ChessPiece* b3 = new Bishop(7,2,'w', 'b');
+    ChessPiece* b4 = new Bishop(7,5,'w', 'b');
+   ChessPiece* k1 = new King(0,3, 'b', 'K');
+    ChessPiece* k2 = new King(7,3,'w', 'k');
+    ChessPiece* q1 = new Queen(0,4, 'b', 'Q');
+    ChessPiece* q2 = new Queen(7,4,'w', 'q');
+    ChessPiece *p1 = new Pawn(1,0, 'b', 'P');
+    ChessPiece *p2 = new Pawn(1,1,'b', 'P');
+    ChessPiece *p3 = new Pawn(1,2,'b', 'P');
+    ChessPiece *p4 = new Pawn(1,3,'b', 'P');
+    ChessPiece *p5 = new Pawn(1,4,'b', 'P');
+    ChessPiece *p6 = new Pawn(1,5,'b', 'P');
+    ChessPiece *p7 = new Pawn(1,6,'b', 'P');
+    ChessPiece *p8 = new Pawn(1,7,'b', 'P');
+    ChessPiece *p9 = new Pawn(6,0,'w', 'p');
+    ChessPiece *p10 = new Pawn(6,1,'w', 'p');
+    ChessPiece *p11 = new Pawn(6,2,'w', 'p');
+    ChessPiece *p12 = new Pawn(6,3,'w', 'p');
+    ChessPiece *p13 = new Pawn(6,4,'w', 'p');
+    ChessPiece *p14 = new Pawn(6,5,'w', 'p');
+    ChessPiece *p15 = new Pawn(6,6,'w', 'p');
+    ChessPiece *p16 = new Pawn(6,7,'w', 'p');
 
     //loading board with pieces
     board[0][0] = r1;
@@ -85,39 +90,52 @@ void Board::resetBoard(){
 }
 
 
+
 void Board::printBoard(){
-    for(unsigned i = 0; i < 8; i++){
-        cout << "-------------------------"
-        for(unsigned j = 0; j < 8; j++){
-            cout << "|"
-            cout << board[i][j]->get_Name(); 
+    std::cout << " ============= CHESS GAME ================" << std::endl;
+     std::cout << "  0    1   2   3   4   5   6   7" << std::endl;
+    std::cout << " _________________________________" << std::endl;
+    for(unsigned int i = 0; i < 8; i++){
+        for(unsigned int j = 0; j < 8; j++){
+            std::cout << " | ";
+            if(board[i][j] != nullptr){
+                std::cout << board[i][j]->get_name(); 
+            }
+            else{
+             std::cout << ' ';
+            }
+            
         }
-        cout << "|" << endl;
+        std::cout << " |" << std:: endl;
+        int ycor =(7-i);
+        std::cout << ycor << "|___|___|___|___|___|___|___|___|" << std::endl ;
+       
     }
+    
 }
 
 
-                           
 bool Board::CheckAccept ( ChessPiece *piece, int d_x, int d_y){
+    PieceVisitor* visitor = new PieceVisitor();
     //check if move follows rule for piece
-    if(piece.move)
-
-
-    if( board[d_x][d_y] != nullptr){
-       if(board[d_x][d_y].getColor() ==  piece.getColor()){
+    if(piece->accept(visitor, d_x, d_y)){
+        if( board[d_x][d_y] != nullptr){
+            if(board[d_x][d_y]->get_color() ==  piece->get_color()){
            return false;    //if spot has ur color piece send false
-       }
-       else{
-           cout << board[d_x][d_y].getColor() << " " << board[d_x][d_y].getName() << "was killed " << endl; //take over piece
-       }
+             }
+            else{
+           std::cout << board[d_x][d_y]->get_color() << " " << board[d_x][d_y]->get_name() << "was killed " << std::endl; //take over piece
+             }
     }
-   
+    // assign piece to new spot and reset old spot 
     board[d_x][d_y] = piece;   //replace spot with new 
-    board[piece.getX()][piece.getY()] = nullptr;
-    piece.setX() = d_x;
-    piece.setY() = d_y;
+    board[piece->get_X()][piece->get_Y()] = nullptr;
+    piece->set_X(d_x);
+    piece->set_Y(d_y);
     return true;
+    }
 
+    else { return false;}
     /*- 
     How CheckAccept function in Board will work:
     Check if move is valid by checking that the new position isn't occupied by same players piece by color
@@ -131,4 +149,3 @@ bool Board::CheckAccept ( ChessPiece *piece, int d_x, int d_y){
      
     */
 }
-

@@ -1,6 +1,5 @@
 
-
-#include "Pawn.hpp"
+#include "pawn.hpp"
 #include "visitor.hpp"
 
 Pawn::Pawn(int x, int y, char color, char name)
@@ -13,7 +12,7 @@ Pawn::Pawn(int x, int y, char color, char name)
 
 
 
-bool Pawn::accept(Visitor *pV, char d_x, char d_y)
+bool Pawn::accept(Visitor *pV, int d_x, int d_y)
 {
     if(pV->visitPawn(this, d_x, d_y))
     {
@@ -23,5 +22,14 @@ bool Pawn::accept(Visitor *pV, char d_x, char d_y)
 }
 
 
+bool Pawn::getPawn_isMoved()
+{
+    return isMoved;
+}
 
+
+void Pawn::setPawn_isMoved()
+{
+    isMoved = true;
+}
 

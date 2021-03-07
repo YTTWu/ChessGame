@@ -3,14 +3,10 @@
 
 
 #include <stdio.h>
-#include "Knight.hpp"
-#include "Bishop.hpp"
-#include "Pawn.hpp"
-#include "Rook.hpp"
-#include "Queen.hpp"
-#include "King.hpp"
 
-
+class Knight;
+class Pawn;
+class Bishop;
 
 
 
@@ -18,12 +14,12 @@ class Visitor
 {
 public:
     
-    virtual bool visitKnight(Knight *knight, char d_x, char d_y);
-    virtual bool visitBishop(Bishop *bishop, char d_x, char d_y);
-    virtual bool visitPawn(Pawn *pawn, char d_x, char d_y);
-    virtual bool visitRook(Rook rook, char d_x, char d_y);
-    virtual bool visitQueen(Queen queen, char d_x, char d_y );
-    virtual bool visitKing(King king, char d_x, char d_y);
+    virtual bool visitKnight(Knight *knight, int d_x, int d_y) = 0;
+    virtual bool visitBishop(Bishop *bishop, int d_x, int d_y) = 0;
+    virtual bool visitPawn(Pawn *pawn, int d_x, int d_y) = 0;
+    //virtual bool visitRook(Rook rook, int d_x, int d_y);
+    //virtual bool visitQueen(Queen queen, int d_x, int d_y );
+    //virtual bool visitKing(King king, int d_x, int d_y);
     
     
 };

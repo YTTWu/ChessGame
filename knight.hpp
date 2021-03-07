@@ -3,7 +3,7 @@
 #define knight_hpp
 
 
-#include "ChessPiece.hpp"
+#include "chessPiece.hpp"
 #include "visitor.hpp"
 #include <stdio.h>
 
@@ -12,10 +12,7 @@ class Knight : public ChessPiece
 {   
 public:
     Knight(int x, int y, char color, char name);
-    bool accept(Visitor *pV);
-    
-    
-    
+    bool accept(Visitor *pV, int d_x, int d_y);
 };
 
 

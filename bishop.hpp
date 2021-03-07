@@ -4,12 +4,12 @@
 
 #include <stdio.h>
 
-#include "ChessPiece.hpp"
+#include "chessPiece.hpp"
 
 class Bishop : public ChessPiece
 {
-public:    
-    Bishop(int x, int y, char color, char name);
+public:
+    Bishop(int x, int y, char color, char name);    
     bool accept(Visitor *pV, char d_x, char d_y);
 };
 

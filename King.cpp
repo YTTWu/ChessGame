@@ -9,7 +9,7 @@ King::King(int x, int y, char color, char name)
     set_name(name);
 }
 
-virtual bool King::accept(Visitor *pV, int d_x, int d_y)
+ bool King::accept(Visitor *pV, int d_x, int d_y)
 {
     if(pV->visitKing(this,d_x,d_y))
     {

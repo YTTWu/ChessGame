@@ -9,12 +9,14 @@ class Rook;
 
 class Visitor
 {
-    bool visitKing(King *king, int x, int y);
-    bool visitQueen(Queen *queen, int x, int y);
-   // bool visitBishop(Bishop *bishop, int x, int y);
-   // bool visitKnight(Knight *knight, int x, int y);
-    bool visitRook(Rook *rook, int x, int y);
-   // bool visitPawn(Pawn *pawn, int x, int y);
+public:
+
+   virtual bool visitKing(King *king, int d_x, int d_y) = 0;
+   //virtual bool visitQueen(Queen *queen, int d_x, int d_y) = 0;
+   //virtual bool visitBishop(Bishop *bishop, int x, int y);
+   //virtual bool visitKnight(Knight *knight, int x, int y);
+   //virtual bool visitRook(Rook *rook, int d_x, int d_y) = 0;
+   //virtual bool visitPawn(Pawn *pawn, int x, int y);
     
 };
 

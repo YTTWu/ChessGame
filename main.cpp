@@ -2,8 +2,9 @@
 #include <string>
 #include "Queen.hpp"
 #include "Rook.hpp"
-#include "King.hpp"
+#include "King.cpp"
 #include "PieceVisitor.hpp"
+#include "Visitor.hpp"
 #include "ChessPiece.hpp"
 
 

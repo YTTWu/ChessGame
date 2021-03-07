@@ -5,7 +5,7 @@
 #include <math.h>
 #include "Visitor.hpp"
 
-class Visitor;
+//class Visitor;
 
 class PieceVisitor : public Visitor
 {

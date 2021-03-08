@@ -21,7 +21,7 @@ int main()
     std::cout << bishop->get_name() << std::endl;
     std::cout << bishop->get_color() << std::endl;
   
-    if(bishop->accept(visitor,3,1))
+    if(bishop->accept(visitor,6,1))
     {
         std::cout << "move valid" << std::endl;
 

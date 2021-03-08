@@ -2,8 +2,8 @@
 #define Bishop_hpp
 
 #include <stdio.h>
-#include "ChessPiece.hpp"
-#include "Visitor.hpp"
+#include "chessPiece.hpp"
+#include "visitor.hpp"
 
 class Visitor;
 

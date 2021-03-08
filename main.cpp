@@ -1,4 +1,4 @@
-/*
+
 #include "chessPiece.hpp"
 #include "knight.cpp"
 #include "pawn.cpp"
@@ -8,6 +8,7 @@
 #include "queen.cpp"
 #include "visitor.hpp"
 #include "piecevisitor.hpp"
+#include "checkmateVisitor.hpp"
 #include <iostream>
 #include <string>
 
@@ -18,19 +19,20 @@ int main()
     PieceVisitor *visitor = new PieceVisitor();
     
     ChessPiece *pawn = new Pawn(0,1,'w','N');
-    ChessPiece *rook = new Rook(0,0,'w', 'R');
+    ChessPiece *rook = new Rook(7,7,'w', 'R');
     ChessPiece *king = new King(0,0,'w', 'R');
     ChessPiece *queen = new Queen(2,3, 'w', 'Q');
     ChessPiece *bishop = new Bishop(5,7, 'B',  'D');
     ChessPiece *knight = new Knight(0,0,'w', 'R');
     
+    CheckmateVisitor *visit = new CheckmateVisitor();
 
-    std::cout << pawn->get_X() << std::endl;
-    std::cout << pawn->get_Y() << std::endl;
-    std::cout << pawn->get_color() << std::endl;
-    std::cout << pawn->get_name() << std::endl;
+    std::cout << rook->get_X() << std::endl;
+    std::cout << rook->get_Y() << std::endl;
+    std::cout << rook->get_color() << std::endl;
+    std::cout << rook->get_name() << std::endl;
 
-    if(rook->accept(visitor,2,3))
+    if(rook->accept(visit,7,5))
     {
         std::cout << "move valid" << std::endl;
 
@@ -41,11 +43,11 @@ int main()
     }
 
     return 0;
-
 };
 
-*/
 
+
+/*
 #include "chessPiece.hpp"
 #include "knight.hpp"
 #include "pawn.hpp"
@@ -99,4 +101,4 @@ std::cout << curr->get_X();
 return 0;
 
 }
-
+*/

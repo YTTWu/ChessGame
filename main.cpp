@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
-#include "Queen.hpp"
-#include "Rook.hpp"
-#include "King.cpp"
-#include "Bishop.cpp"
-#include "PieceVisitor.hpp"
-#include "Visitor.hpp"
-#include "ChessPiece.hpp"
+#include "queen.hpp"
+#include "rook.hpp"
+#include "king.cpp"
+#include "bishop.cpp"
+#include "pieceVisitor.hpp"
+#include "visitor.hpp"
+#include "chessPiece.hpp"
 
 
 int main()

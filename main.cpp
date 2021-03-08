@@ -11,7 +11,7 @@
 int main()
 {
     PieceVisitor *visitor = new PieceVisitor();
-    ChessPiece *king = new King(5,0,'w','K');
+    ChessPiece *king = new King(4,0,'w','K');
 
 
 
@@ -20,7 +20,7 @@ int main()
     std::cout << king->get_name() << std::endl;
     std::cout << king->get_color() << std::endl;
   
-    if(king->accept(visitor,4,0))
+    if(king->accept(visitor,7,0))
     {
         std::cout << "move valid" << std::endl;
 

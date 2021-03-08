@@ -29,8 +29,6 @@ public:
 
 	
 	
-
- 
        /* if (abs(d_x - temp_x == 1 && d_y == temp_y))
             {
             return true;
@@ -80,16 +78,8 @@ public:
 		temp_x +=1;
 	       }
 
-
-	        
-    /*    while(temp_x && temp_y < 7)    
-          if(abs(temp_x + 1 == d_x)==(abs(temp_y - 1 == d_y) && (abs(temp_x - 1 ==  d_x)<=7) && (abs(temp_y - 1 ==  d_y)<=7)))                {
-                {
-		return true;
-                }
-               temp_x += 1;
-    */
-    }
+    	    }
+  }
 // bool visitKnight(Knight *knight, int d_x, int d_y){}
 // bool visitRook(Rook *rook, int d_x, int d_y){}
 // bool visitPawn(Pawn *pawn, int d_x, int d_y){}

@@ -1,5 +1,5 @@
-#include "Bishop.hpp"
-#include "Visitor.hpp"
+#include "bishop.hpp"
+#include "visitor.hpp"
 
 Bishop::Bishop(int x, int y, char color, char name)
 {

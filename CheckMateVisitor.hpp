@@ -31,7 +31,7 @@ public:
 	
 
  
-        if (abs(d_x - temp_x == 1 && d_y == temp_y))
+       /* if (abs(d_x - temp_x == 1 && d_y == temp_y))
             {
             return true;
             }
@@ -44,7 +44,9 @@ public:
             return true;
             }
             else return false;
-    }
+   */
+
+	 }
     
 //bool visitQueen(Queen *queen, int d_x, int d_y){}
 
@@ -54,25 +56,29 @@ public:
           int temp_x = bishop->get_X();
           int temp_y = bishop->get_Y();
     
-	
-	 while(temp_y < 7)
+         if (bishop->getColor() == 'w')
 	   {
+	    while(temp_x < 7 && temp_y < 7)
+	      {
 
- 	  if(temp_x + 1 == d_x && temp_y - 1 == d_y)
+ 	      if(temp_x + 1 == d_x && temp_y - 1 == d_y || temp_x - 1 == d_x && temp_y - 1 == d_y)
 		{
 		 return true;
 		}
 		temp_y += 1;
-           }
+                }
+	    }
 
-	  while(temp_x < 7)
-	   {
-	   if(temp_x - 1 == d_x && temp_y + 1 == d_y)
+	 if (bishop->getColor() == 'W')
+           {   
+	    while(temp_x < 7 && temp_y < 7)
+	      {
+	       if(temp_x - 1 == d_x && temp_y + 1 == d_y || temp_x + 1 == d_x && temp_y + 1 == d_y)
           	{
                  return true;
                 }
 		temp_x +=1;
-	   }
+	       }
 
 
 	        

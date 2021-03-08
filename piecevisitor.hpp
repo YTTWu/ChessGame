@@ -1,8 +1,7 @@
 #ifndef PieceVisitor_hpp
 #define PieceVisitor_hpp
-
 #include <math.h>
-
+ #include <cstdlib>
 
 #include "visitor.hpp"
 

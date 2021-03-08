@@ -1,5 +1,4 @@
-
-#ifndef Knight_hpp
+#ifndef knight_hpp
 #define knight_hpp
 
 
@@ -9,7 +8,7 @@
 
 
 class Knight : public ChessPiece
-{   
+{
 public:
     Knight(int x, int y, char color, char name);
     bool accept(Visitor *pV, int d_x, int d_y);

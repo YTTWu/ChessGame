@@ -1,7 +1,5 @@
+#include "knight.hpp"
 
-
-#include "Knight.hpp"
-#include "visitor.hpp"
 
 Knight::Knight(int x, int y, char color, char name)
 {
@@ -21,7 +19,5 @@ bool Knight::accept(Visitor *pV, char d_x, char d_y)
     }
     return false;
 }
-
-
 
 

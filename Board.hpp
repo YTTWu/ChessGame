@@ -8,8 +8,6 @@
 class Board{
 private: 
 ChessPiece *board[8][8]; //array
-char white;
-char black;
 
 public:
 Board();

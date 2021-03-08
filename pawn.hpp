@@ -13,8 +13,8 @@ private:
     bool isMoved = false;
 public:
     Pawn(int x, int y, char color, char name);
-    bool accept(Visitor *vP, int d_x, int d_y);
-    
+    bool accept(Visitor *pV, int d_x, int d_y);
+
     bool getPawn_isMoved();
     void setPawn_isMoved();
 
@@ -22,3 +22,4 @@ public:
 };
 
 #endif
+

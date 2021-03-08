@@ -1,5 +1,5 @@
-#include "Rook.hpp"
-#include "Visitor.hpp"
+#include "rook.hpp"
+#include "visitor.hpp"
 
 Rook::Rook(int x, int y, char color, char name)
 {

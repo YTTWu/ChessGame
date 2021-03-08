@@ -1,5 +1,5 @@
-#include "Queen.hpp"
-#include "Visitor.hpp"
+#include "queen.hpp"
+#include "visitor.hpp"
 
 
 Queen::Queen(int x, int y, char color, char name)

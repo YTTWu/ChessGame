@@ -3,7 +3,7 @@
 
 
 #include <stdio.h>
-#include "Visitor.hpp"
+#include "visitor.hpp"
 
 
 class ChessPiece

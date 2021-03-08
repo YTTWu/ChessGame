@@ -1,7 +1,7 @@
 #ifndef Queen_hpp
 #define Queen_hpp
 #include <stdio.h>
-#include "ChessPiece.hpp"
+#include "chessPiece.hpp"
 
 class Visitor;
 

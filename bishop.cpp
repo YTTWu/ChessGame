@@ -1,6 +1,5 @@
 #include "bishop.hpp"
 
-
 Bishop::Bishop(int x, int y, char color, char name)
 {
     set_X(x);

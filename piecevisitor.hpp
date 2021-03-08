@@ -13,7 +13,15 @@ public:
     
     bool visitKnight(Knight *knight, int d_x, int d_y)
     {
-        return false;
+        int temp_x = knight->get_X();
+        int temp_y = knight->get_Y();
+        if ((abs(temp_x - d_x) == 2 && abs(temp_y - d_y) == 1) || (abs(temp_x - d_x)) == 1 && abs(temp_y - d_y) == 2){
+            return true;
+        }
+        else { 
+            return false;
+        }
+
     }
     
     bool visitBishop(Bishop *bishop, int d_x, int d_y)

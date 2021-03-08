@@ -23,11 +23,11 @@ public:
             {
             return true;
             }
-        if (abs(d_y - temp_y == 1 && d_x == temp_x))
+       else if (abs(d_y - temp_y == 1 && d_x == temp_x))
             {
                 return true;
             }
-        if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
+        else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
             {
             return true;
             }

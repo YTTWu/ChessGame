@@ -6,6 +6,7 @@
 #include "pawn.cpp"
 #include "rook.hpp"
 #include "queen.hpp"
+#include "knight.hpp"
 #include "king.hpp"
 #include "bishop.hpp"
 #include "piecevisitor.hpp"

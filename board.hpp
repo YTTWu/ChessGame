@@ -4,11 +4,13 @@
 #include <string>
 #include <iostream>
 #include "pawn.cpp"
-#include "rook.hpp"
-#include "queen.hpp"
-#include "king.hpp"
-#include "bishop.hpp"
+#include "knight.cpp"
+#include "rook.cpp"
+#include "queen.cpp"
+#include "king.cpp"
+#include "bishop.cpp"
 #include "piecevisitor.hpp"
+#include "checkmateVisitor.hpp"
 
 
 
@@ -23,6 +25,8 @@ ChessPiece* getPiece(int x, int y);
 void resetBoard();
 void printBoard();//needs tests and check if built correctly
 bool checkAccept(ChessPiece *piece, int d_x, int d_y);
+bool checkMate(ChessPiece *piece, int d_x, int d_y);
+bool pathCheck(ChessPiece *piece, int d_x, int d_y);
 
 
 };

@@ -1,53 +1,55 @@
-
-#include "chessPiece.hpp"
-#include "knight.cpp"
-#include "pawn.cpp"
-#include "bishop.cpp"
-#include "rook.cpp"
-#include "king.cpp"
-#include "queen.cpp"
-#include "visitor.hpp"
-#include "piecevisitor.hpp"
-#include "checkmateVisitor.hpp"
-#include <iostream>
-#include <string>
-
-
-
-int main()
-{
-    PieceVisitor *visitor = new PieceVisitor();
-    
-    ChessPiece *pawn = new Pawn(0,1,'w','N');
-    ChessPiece *rook = new Rook(7,7,'w', 'R');
-    ChessPiece *king = new King(0,0,'w', 'R');
-    ChessPiece *queen = new Queen(2,3, 'w', 'Q');
-    ChessPiece *bishop = new Bishop(5,7, 'B',  'D');
-    ChessPiece *knight = new Knight(0,0,'w', 'R');
-    
-    CheckmateVisitor *visit = new CheckmateVisitor();
-
-    std::cout << rook->get_X() << std::endl;
-    std::cout << rook->get_Y() << std::endl;
-    std::cout << rook->get_color() << std::endl;
-    std::cout << rook->get_name() << std::endl;
-
-    if(rook->accept(visit,7,5))
-    {
-        std::cout << "move valid" << std::endl;
-
-    }
-    else
-    {
-        std::cout << "move invalid" << std::endl;
-    }
-
-    return 0;
-};
-
-
-
 /*
+ * #include "chessPiece.hpp"
+ * #include "knight.hpp"
+ * #include "pawn.hpp"
+ * #include "bishop.hpp"
+ * #include "rook.hpp"
+ * #include "king.hpp"
+ * #include "queen.hpp"
+ * #include "knight.hpp"
+ * #include "visitor.hpp"(commented out)
+ * #include "piecevisitor.hpp"
+ * #include "checkmateVisitor.hpp"
+ * #include <iostream>
+ * #include <string>
+ *
+ *
+ *
+ * int main()
+ * {
+ *     PieceVisitor *visitor = new PieceVisitor();
+ *         
+ *             ChessPiece *pawn = new Pawn(0,1,'w','N');
+ *                 ChessPiece *rook = new Rook(7,7,'w', 'R');
+ *                     ChessPiece *king = new King(0,0,'w', 'R');
+ *                         ChessPiece *queen = new Queen(2,3, 'w', 'Q');
+ *                             ChessPiece *bishop = new Bishop(5,7, 'B',  'D');
+ *                                 ChessPiece *knight = new Knight(0,0,'w', 'R');
+ *                                     
+ *                                         CheckmateVisitor *visit = new CheckmateVisitor();
+ *
+ *                                             std::cout << rook->get_X() << std::endl;
+ *                                                 std::cout << rook->get_Y() << std::endl;
+ *                                                     std::cout << rook->get_color() << std::endl;
+ *                                                         std::cout << rook->get_name() << std::endl;
+ *
+ *                                                             if(rook->accept(visit,7,5))
+ *                                                                 {
+ *                                                                         std::cout << "move valid" << std::endl;
+ *
+ *                                                                             }
+ *                                                                                 else
+ *                                                                                     {
+ *                                                                                             std::cout << "move invalid" << std::endl;
+ *                                                                                                 }
+ *
+ *                                                                                                     return 0;
+ *
+ *                                                                                                     };
+ *                                                                                                     */
+
+
+
 #include "chessPiece.hpp"
 #include "knight.hpp"
 #include "pawn.hpp"
@@ -62,11 +64,15 @@ int main()
 #include <string>
 #include<stdlib.h>
 
+ 
 int main (){
+    Board* chessboard = new Board();
+    chessboard->resetBoard();
+    chessboard->printBoard();
+    while(true)
+    {
 
-Board* chessboard = new Board();
-chessboard->resetBoard();
-chessboard->printBoard();
+
 int currRow=0;
 int currCol=0;
 int destRow=0;
@@ -80,20 +86,21 @@ std::cin >> currCol;
 ChessPiece* curr = chessboard->getPiece(currRow, currCol);
 std::cout <<"Moving Piece " << curr->get_name()<< " at spot (" << currRow << ","<< currCol << ")"<< std:: endl;
 
-std:: cout << " Enter the Row number of where you want to move (0-7) : " << std::endl;
+std:: cout << " X-Coordinate of where you want to move (0-7) : " << std::endl;
 std::cin >> destRow;
 
-std::cout << " Enter the Column number of where you want to move (0-7): " << std::endl;
+std::cout << " y-Coordinate of where you want to move (0-7): " << std::endl;
 std::cin >> destCol;
 
 if(chessboard->checkAccept(curr, destRow, destCol) == true) {
     std::cout << " Piece moved to new spot" << std::endl;
+    
 }
 else { std::cout << " Invalid move" << std::endl;}
 std:: cout << "checker";
 std::cout << curr->get_X();
 
-
+    }
 
 
 
@@ -101,4 +108,5 @@ std::cout << curr->get_X();
 return 0;
 
 }
-*/
+
+

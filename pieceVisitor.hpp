@@ -3,9 +3,9 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "Visitor.hpp"
+#include "visitor.hpp"
 
-//class Visitor;
+
 
 class PieceVisitor : public Visitor
 {

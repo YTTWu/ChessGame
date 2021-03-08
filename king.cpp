@@ -1,5 +1,5 @@
-#include "King.hpp"
-#include "Visitor.hpp"
+#include "king.hpp"
+#include "visitor.hpp"
 
 King::King(int x, int y, char color, char name)
 {

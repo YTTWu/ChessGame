@@ -1,6 +1,5 @@
+#include "bishop.hpp"
 
-#include "Bishop.hpp"
-#include "PieceVisitor.hpp"
 
 Bishop::Bishop(int x, int y, char color, char name)
 {
@@ -10,8 +9,6 @@ Bishop::Bishop(int x, int y, char color, char name)
     set_name(name);
 }
 
-
-
 bool Bishop::accept(Visitor *pV, int d_x, int d_y)
 {
     if(pV->visitBishop(this, d_x, d_y))
@@ -20,7 +17,5 @@ bool Bishop::accept(Visitor *pV, int d_x, int d_y)
     }
     return false;
 }
-
-
 
 

@@ -4,7 +4,6 @@
 #include <math.h>
 
 
-
 #include "visitor.hpp"
 
 class PieceVisitor : public Visitor
@@ -16,31 +15,38 @@ public:
     {
         return false;
     }
-     
+    
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
     {
-        return false;
-    }
+        int temp_x = bishop->get_X();
+        int temp_y = bishop->get_Y();
         
+        if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
+        {
+            return true;
+        }
+        else return false;
+    }
+    
     
     bool visitPawn(Pawn *pawn, int d_x, int d_y)
     {
         int temp_x = pawn->get_X();
         int temp_y = pawn->get_Y();
         
-        if(pawn->getPawn_isMoved() == false)
+        if(pawn->getPawn_isMoved() == true)
         {
-            if(d_x == temp_x && abs(d_y - temp_y) == 1)
+            if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
                 pawn->setPawn_isMoved();
                 return true;
             }
-            if(d_x - temp_x == -1 && abs(d_y - temp_y) == 1)
+            if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
             {
                 pawn->setPawn_isMoved();
                 return true;
             }
-            if(d_x - temp_x == 1 && abs(d_y - temp_y) == 1)
+            if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
             {
                 pawn->setPawn_isMoved();
                 return true;
@@ -52,11 +58,11 @@ public:
         }
         else
         {
-            if(d_x == temp_x && abs(d_y - temp_y) == 1)
+            if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
                 return true;
             }
-            else if(d_x == temp_x && abs(d_y - temp_y) == 2)
+            else if(d_y == temp_y && abs(d_x - temp_x) == 2)
             {
                 return true;
             }
@@ -68,8 +74,7 @@ public:
         
     }
     
-  /*  
-    bool visitRook(Rook *rook, char d_x, char d_y)
+    bool visitRook(Rook *rook, int d_x, int d_y)
     {
         int temp_x = rook->get_X();
         int temp_y = rook->get_Y();
@@ -82,7 +87,7 @@ public:
             {
                 return true;
             }
-        
+            
             return false;
         }
         if(d_y == temp_y)
@@ -94,48 +99,56 @@ public:
                 return true;
             }
             
-            return false;
         }
+        return false;
     }
     
+    bool visitKing(King *king, int d_x, int d_y)
+    {
+        int temp_x = king->get_X();
+                int temp_y = king->get_Y();
+                
+                if (abs(d_x - temp_x == 1 && d_y == temp_y))
+                    {
+                    return true;
+                    }
+               else if (abs(d_y - temp_y == 1 && d_x == temp_x))
+                    {
+                        return true;
+                    }
+                else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
+                    {
+                    return true;
+                    }
+                    else return false;
+    }
     
-    bool visitQueen(Queen queen, char d_x, char d_y )
+    virtual bool visitQueen(Queen *queen, int d_x, int d_y )
     {
         int temp_x = queen->get_X();
         int temp_y = queen->get_Y();
         int xIncrement;
         int yIncrement;
-       if((temp_x != d_x || temp_y != d_y) ){ // if not going side to side or up(diagonal)
-            if(temp_x = d_x  && (abs(d_y - temp_y)<=7)){   // going up or down
+        if((temp_x != d_x || temp_y != d_y) )
+        { // if not going side to side or up(diagonal)
+            if(temp_x = d_x  && (abs(d_y - temp_y)<=7))
+            {   // going up or down
                 return true;
             }
-            if(temp_y = d_y  && (abs(d_x - temp_x)<=7)){ // side
+            if(temp_y = d_y  && (abs(d_x - temp_x)<=7))
+            { // side
                 return true;
             }
         }
-        else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)){ //diagonal
-                return true;
-            }
-        else {return false;}
-    }
-     
-    
-    bool visitKing(King king, char d_x, char d_y)
-    {
-         if (abs(d_x - king->get_X()) == 1)
-        if (abs(thatSpace->get_Y() - king->get_Y()) == 1)
-        {
-            thatSpace->setSpace(thisKing);
-            thisKing->setEmpty();
+        else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
+        { //diagonal
             return true;
         }
-        else return false;
-    else return false;
+        return false;
+        
     }
-    }
-*/     
-
 };
+
 
 
 #endif

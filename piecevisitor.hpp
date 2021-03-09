@@ -1,8 +1,7 @@
 #ifndef PieceVisitor_hpp
 #define PieceVisitor_hpp
-
 #include <math.h>
-
+ #include <cstdlib>
 
 #include "visitor.hpp"
 
@@ -18,9 +17,10 @@ public:
         if ((abs(temp_x - d_x) == 2 && abs(temp_y - d_y) == 1) || (abs(temp_x - d_x)) == 1 && abs(temp_y - d_y) == 2){
             return true;
         }
-        else {
+        else { 
             return false;
         }
+
     }
     
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
@@ -145,6 +145,7 @@ public:
         else return false;
     }
     
+<<<<<<< HEAD
      bool visitQueen(Queen *queen, int d_x, int d_y )
     {
         int temp_x = queen->get_X();
@@ -166,6 +167,24 @@ public:
         }
         return false;
         
+=======
+    bool visitQueen(Queen *queen, int d_x, int d_y )
+    {
+        int temp_x = queen->get_X();
+        int temp_y = queen->get_Y();
+       if((temp_x != d_x || temp_y != d_y) ){ // (straight up OR straight across)
+            if((temp_x == d_x)  && (abs(d_y - temp_y)<=7)){   // going up or down
+                return true;
+            }
+            else if(temp_y == d_y  && (abs(d_x - temp_x)<=7)){ // side
+                return true;
+            }
+            else if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)){ //diagonal
+                return true;
+            }
+        }
+        else {return false;}
+>>>>>>> dd6f0631e6e28b4d29c9f80d31e9b0b32305149e
     }
 };
 

@@ -250,25 +250,57 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
         int temp_y = piece->get_Y();
         int temp_x = piece->get_X();
         
-        if(board[d_x][d_y] == NULL)
+        
+        
+        if(piece->get_color() == 'w')
         {
-            if(piece->get_color() == 'w')
+            if((board[temp_x-1][temp_y] != NULL && d_x == temp_x - 1 && d_y == temp_y)
+               || (board[temp_x-1][temp_y] != NULL && d_x == temp_x - 2 && d_y == temp_y))
             {
-                if(board[temp_x-1][temp_y] != NULL)
-                {
-                    return false;
-                }
-                return true;
+                return false;
             }
-            if(piece->get_color() == 'b')
+            if(d_x == temp_x - 1 && d_y == temp_y + 1)
             {
-                if(board[temp_x+1][temp_y] != NULL)
+                if(board[d_x][d_y] != NULL)
                 {
-                    return false;
+                    return true;
                 }
-                return true;
+                return false;
+            }
+            if(d_x == temp_x - 1 && d_y == temp_y - 1)
+            {
+                if(board[d_x][d_y] != NULL)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+        if(piece->get_color() == 'b')
+        {
+            if((board[temp_x+1][temp_y] != NULL && d_x == temp_x + 1 && d_y == temp_y) || (board[temp_x+1][temp_y] != NULL && d_x == temp_x + 2 && d_y == temp_y))
+            {
+                return false;
+            }
+            if(d_x == temp_x + 1 && d_y == temp_y + 1)
+            {
+                if(board[d_x][d_y] != NULL)
+                {
+                    return true;
+                }
+                return false;
+            }
+            if(d_x == temp_x + 1 && d_y == temp_y - 1)
+            {
+                if(board[d_x][d_y] != NULL)
+                {
+                    return true;
+                }
+                return false;
             }
         }
+        
         
         return true;
         
@@ -317,6 +349,7 @@ void Board::printPrompt()
         if(!is_number(temp))
         {
             std::cout << "invalid input, please check coordinates again.\n\n";
+            printBoard();
             continue;
         }
         currRow = std::stoi(temp);
@@ -327,6 +360,7 @@ void Board::printPrompt()
         if(!is_number(temp))
         {
             std::cout << "invalid input, please check coordinates again.\n\n";
+            printBoard();
             continue;
         }
         currCol = std::stoi(temp);
@@ -353,6 +387,7 @@ void Board::printPrompt()
                 
             }
             std::cout << " invalid input, please check coordinates again.\n\n" << std::endl;
+            printBoard();
         }
         
         
@@ -373,6 +408,7 @@ bool Board::userInputCheck(int temp)
     
     
     std::cout << "invalid input, please check coordinates again.\n\n\n";
+    printBoard();
     return false;
 }
 

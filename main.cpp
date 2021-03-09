@@ -12,8 +12,8 @@
 int main()
 {
     PieceVisitor *visitor = new PieceVisitor();
-//    ChessPiece *king = new King(4,0,'w','K');
-    ChessPiece *bishop = new Bishop(2,0,'w','B');
+//  ChessPiece *king = new King(4,0,'w','K');
+    ChessPiece *bishop = new Bishop(0,5,'b','B');
 
 
     std::cout << bishop->get_X() << std::endl;
@@ -21,7 +21,7 @@ int main()
     std::cout << bishop->get_name() << std::endl;
     std::cout << bishop->get_color() << std::endl;
   
-    if(bishop->accept(visitor,6,1))
+    if(bishop->accept(visitor,1,5))
     {
         std::cout << "move valid" << std::endl;
 

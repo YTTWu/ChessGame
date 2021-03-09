@@ -1,8 +1,7 @@
 #ifndef PieceVisitor_hpp
 #define PieceVisitor_hpp
-
 #include <math.h>
-
+ #include <cstdlib>
 
 #include "visitor.hpp"
 
@@ -13,7 +12,15 @@ public:
     
     bool visitKnight(Knight *knight, int d_x, int d_y)
     {
-        return false;
+        int temp_x = knight->get_X();
+        int temp_y = knight->get_Y();
+        if ((abs(temp_x - d_x) == 2 && abs(temp_y - d_y) == 1) || (abs(temp_x - d_x)) == 1 && abs(temp_y - d_y) == 2){
+            return true;
+        }
+        else { 
+            return false;
+        }
+
     }
     
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
@@ -123,29 +130,22 @@ public:
                     else return false;
     }
     
-    virtual bool visitQueen(Queen *queen, int d_x, int d_y )
+    bool visitQueen(Queen *queen, int d_x, int d_y )
     {
         int temp_x = queen->get_X();
         int temp_y = queen->get_Y();
-        int xIncrement;
-        int yIncrement;
-        if((temp_x != d_x || temp_y != d_y) )
-        { // if not going side to side or up(diagonal)
-            if(temp_x = d_x  && (abs(d_y - temp_y)<=7))
-            {   // going up or down
+       if((temp_x != d_x || temp_y != d_y) ){ // (straight up OR straight across)
+            if((temp_x == d_x)  && (abs(d_y - temp_y)<=7)){   // going up or down
                 return true;
             }
-            if(temp_y = d_y  && (abs(d_x - temp_x)<=7))
-            { // side
+            else if(temp_y == d_y  && (abs(d_x - temp_x)<=7)){ // side
+                return true;
+            }
+            else if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)){ //diagonal
                 return true;
             }
         }
-        else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
-        { //diagonal
-            return true;
-        }
-        return false;
-        
+        else {return false;}
     }
 };
 

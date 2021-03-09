@@ -24,17 +24,30 @@ public:
     }
     
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
+    
     {
+        
+        
+        
         int temp_x = bishop->get_X();
+        
         int temp_y = bishop->get_Y();
         
-        if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
+        
+        
+        if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))
+            
         {
+            
             return true;
+            
         }
+        
         else return false;
+        
+        
+        
     }
-    
     
     bool visitPawn(Pawn *pawn, int d_x, int d_y)
     {
@@ -45,17 +58,17 @@ public:
         {
             if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             else
@@ -67,10 +80,12 @@ public:
         {
             if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             else if(d_y == temp_y && abs(d_x - temp_x) == 2)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             else
@@ -113,23 +128,46 @@ public:
     bool visitKing(King *king, int d_x, int d_y)
     {
         int temp_x = king->get_X();
-                int temp_y = king->get_Y();
-                
-                if (abs(d_x - temp_x == 1 && d_y == temp_y))
-                    {
-                    return true;
-                    }
-               else if (abs(d_y - temp_y == 1 && d_x == temp_x))
-                    {
-                        return true;
-                    }
-                else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
-                    {
-                    return true;
-                    }
-                    else return false;
+        int temp_y = king->get_Y();
+        
+        if (abs(d_x - temp_x == 1 && d_y == temp_y))
+        {
+            return true;
+        }
+        else if (abs(d_y - temp_y == 1 && d_x == temp_x))
+        {
+            return true;
+        }
+        else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
+        {
+            return true;
+        }
+        else return false;
     }
     
+<<<<<<< HEAD
+     bool visitQueen(Queen *queen, int d_x, int d_y )
+    {
+        int temp_x = queen->get_X();
+        int temp_y = queen->get_Y();
+        
+        
+        if(temp_x == d_x  && (abs(d_y - temp_y)<=7))
+        {   // going up or down
+            return true;
+        }
+        else if(temp_y == d_y  && (abs(d_x - temp_x)<=7))
+        { // side
+            return true;
+        }
+        
+        else if ((abs(d_x - temp_x )== abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))
+        { //diagonal
+            return true;
+        }
+        return false;
+        
+=======
     bool visitQueen(Queen *queen, int d_x, int d_y )
     {
         int temp_x = queen->get_X();
@@ -146,6 +184,7 @@ public:
             }
         }
         else {return false;}
+>>>>>>> dd6f0631e6e28b4d29c9f80d31e9b0b32305149e
     }
 };
 

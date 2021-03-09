@@ -12,15 +12,31 @@ Board::Board(){
 }
 Board::~Board(){}
 
- ChessPiece* Board::getPiece(int x, int y){
+ChessPiece* Board::getPiece(int x, int y){
     
     return board[x][y];
 }
 
 void Board::resetBoard(){
-
     
-  ChessPiece *p1 = new Pawn(1,0, 'b', 'P');
+    
+    ChessPiece* r1 = new Rook(0,0, 'b', 'R');
+    ChessPiece* r2 = new Rook(0,7, 'b', 'R');
+    ChessPiece* r3 = new Rook(7,0, 'w', 'r');
+    ChessPiece* r4 = new Rook(7,7,'w', 'r');
+    ChessPiece* n1 = new Knight(0,1,'b', 'N');
+    ChessPiece* n2 = new Knight(0,6, 'b', 'N');
+    ChessPiece* n3 = new Knight(7,1, 'w', 'n');
+    ChessPiece* n4 = new Knight(7,6,'w', 'n');
+    ChessPiece* b1 = new Bishop(0,2, 'b', 'B');
+    ChessPiece* b2 = new Bishop(0,5, 'b', 'B');
+    ChessPiece* b3 = new Bishop(7,2,'w', 'b');
+    ChessPiece* b4 = new Bishop(7,5,'w', 'b');
+    ChessPiece* k1 = new King(0,3, 'b', 'K');
+    ChessPiece* k2 = new King(7,3,'w', 'k');
+    ChessPiece* q1 = new Queen(0,4, 'b', 'Q');
+    ChessPiece* q2 = new Queen(7,4,'w', 'q');
+    ChessPiece *p1 = new Pawn(1,0, 'b', 'P');
     ChessPiece *p2 = new Pawn(1,1,'b', 'P');
     ChessPiece *p3 = new Pawn(1,2,'b', 'P');
     ChessPiece *p4 = new Pawn(1,3,'b', 'P');
@@ -36,8 +52,23 @@ void Board::resetBoard(){
     ChessPiece *p14 = new Pawn(6,5,'w', 'p');
     ChessPiece *p15 = new Pawn(6,6,'w', 'p');
     ChessPiece *p16 = new Pawn(6,7,'w', 'p');
-
     
+    board[0][0] = r1;
+    board[0][7] = r2;
+    board[7][0] = r3;
+    board[7][7] = r4;
+    board[0][1] = n1;
+    board[0][6] = n2;
+    board[7][1] = n3;
+    board[7][6] = n4;
+    board[0][2] = b1;
+    board[0][5] = b2;
+    board[7][2] = b3;
+    board[7][5] = b4;
+    board[0][3]= k1;
+    board[7][3]= k2;
+    board[0][4]= q1;
+    board[7][4]= q2;
     board[1][0]= p1;
     board[1][1]= p2;
     board[1][2]= p3;
@@ -59,8 +90,8 @@ void Board::resetBoard(){
 
 
 void Board::printBoard(){
-     std::cout << " ============= CHESS GAME ================" << std::endl;
-     std::cout << "  0    1   2   3   4   5   6   7" << std::endl;
+    std::cout << " ============= CHESS GAME ================" << std::endl;
+    std::cout << "  0    1   2   3   4   5   6   7" << std::endl;
     std::cout << " _________________________________" << std::endl;
     for(unsigned int i = 0; i < 8; i++){
         for(unsigned int j = 0; j < 8; j++){
@@ -69,45 +100,284 @@ void Board::printBoard(){
                 std::cout << board[i][j]->get_name();
             }
             else{
-             std::cout << ' ';
+                std::cout << ' ';
             }
             
         }
         std::cout << " |" << std:: endl;
         std::cout << i << "|___|___|___|___|___|___|___|___|" << std::endl ;
-       
+        
     }
-     
+    
 }
 
-                           
+
 bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
     PieceVisitor* visitor = new PieceVisitor();
     
-    if(piece->accept(visitor, d_x, d_y)){
+    if(piece->accept(visitor, d_x, d_y) && pathCheck(piece, d_x, d_y)){
         if( board[d_x][d_y] != nullptr){
             if(board[d_x][d_y]->get_color() ==  piece->get_color()){
-           std::cout << "your piece there not movable"<< std::endl;
-             }
+                std::cout << "The piece at this spot is not movable"<< std::endl;
+                return false;
+            }
             else{
-           std::cout << board[d_x][d_y]->get_color() << " " << board[d_x][d_y]->get_name() << "was killed " << std::endl;
-             }
-         }
-    
+                std::cout << board[d_x][d_y]->get_color() << " ";
+                std::cout << board[d_x][d_y]->get_name() << " was killed " << std::endl;
+            }
+           
+        }
         board[d_x][d_y] = piece;
         board[piece->get_X()][piece->get_Y()] = nullptr;
         piece->set_X(d_x);
         piece->set_Y(d_y);
         printBoard();
         return true;
-    }
-
-    else {
-        std::cout << "Invalid move" << std::endl;
-        return false;
         
-        }
-   
+       
+    }
+    
+        return false;
+    
 }
 
+
+
+
+bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
+{
+    int temp_x = piece->get_X();
+    int temp_y = piece->get_Y();
+    
+    if(piece->get_name() == 'R' || piece->get_name() == 'r')
+    {
+        if(temp_y == d_y)
+        {
+            if(temp_x < d_x)
+            {
+                while(temp_x != d_x)
+                {
+                    temp_x += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            if(temp_x > d_x)
+            {
+                while(temp_x != d_x)
+                {
+                    temp_x -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        }
+        
+        if(temp_x == d_x)
+        {
+            if(temp_y < d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            if(temp_y > d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        }
+    }
+    
+    if(piece->get_name() == 'p' || piece->get_name() == 'P')
+    {
+        int temp_y = piece->get_Y();
+        int temp_x = piece->get_X();
+        if(piece->get_color() == 'w')
+        {
+            if(board[temp_x-1][temp_y] != NULL)
+            {
+                return false;
+            }
+            return true;
+        }
+        if(piece->get_color() == 'b')
+        {
+            if(board[temp_x+1][temp_y] != NULL)
+            {
+                return false;
+            }
+            return true;
+        }
+        
+    }
+    
+    if(piece->get_name() == 'N' || piece->get_name() == 'n')
+    {
+        return true;
+    }
+    
+    
+    if(piece->get_name() == 'B' || piece->get_name() == 'b')
+    {
+        return true;
+    }
+    
+    if(piece->get_name() == 'K' || piece->get_name() == 'k')
+    {
+        return true;
+    }
+    
+    if(piece->get_name() == 'Q' || piece->get_name() == 'q')
+    {
+        return true;
+    }
+    
+    return false;
+}
+
+
+
+void Board::printPrompt()
+{
+    do
+    {
+        
+        std::string temp = "";
+        int currRow = 0;
+        int currCol=0;
+        int destRow=0;
+        int destCol=0;
+        
+        std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
+        std::cin >> temp;
+        
+        if(!is_number(temp))
+        {
+            std::cout << "invalid input, please check coordinates again.\n\n";
+            continue;
+        }
+        currRow = std::stoi(temp);
+        
+        std::cout << " Column of piece you want to move (0-7): " << std::endl;
+        std::cin >> temp;
+        
+        if(!is_number(temp))
+        {
+            std::cout << "invalid input, please check coordinates again.\n\n";
+            continue;
+        }
+        currCol = std::stoi(temp);
+        
+        if(userInputCheck(currRow) && userInputCheck(currCol))
+        {
+            if(board[currRow][currCol] != NULL)
+            {
+                ChessPiece* curr = getPiece(currRow, currCol);
+                
+                std::cout <<"Moving Piece " << curr->get_name()<< " at spot (" << currRow << ","<< currCol << ")"<< std:: endl;
+                
+                std:: cout << " Row of where you want to move (0-7) : " << std::endl;
+                std::cin >> destRow;
+                
+                std::cout << " Column of where you want to move (0-7): " << std::endl;
+                std::cin >> destCol;
+                
+                if(checkAccept(curr, destRow, destCol) == true)
+                {
+                    std::cout << " Piece moved to new spot\n\n" << std::endl;
+                    continue;
+                }
+                
+            }
+            std::cout << " invalid input, please check coordinates again.\n\n" << std::endl;
+        }
+        
+        
+    }
+    while (true);
+        
+    
+    
+}
+
+
+bool Board::userInputCheck(int temp)
+{
+    if(temp >= 0 && temp <= 7)
+    {
+        return true;
+    }
+    
+    
+    std::cout << "invalid input, please check coordinates again.\n\n\n";
+    return false;
+}
+
+
+
+bool Board::is_number(const std::string& s)
+{
+    return !s.empty() && find_if(s.begin(),
+                                      s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+}
+
+
+
+
+
+
+
+/*
+ *  
+ *   std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
+ *    std::getline(std::cin, temp);
+ *     temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+ *      
+ *       if(!is_number(temp))
+ *        {
+ *             std::cout << "invalid input, please check coordinates again.\n";
+ *                  continue;
+ *                   }
+ *                    currRow = std::stoi(temp);
+ *                     
+ *                      
+ *                       std::cout << " Column of piece you want to move (0-7): " << std::endl;
+ *                        std::getline(std::cin, temp);
+ *                         temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+ *                          
+ *                           if(!is_number(temp))
+ *                            {
+ *                                 std::cout << "invalid input, please check coordinates again.\n";
+ *                                      continue;
+ *                                       }
+ *                                        currCol = std::stoi(temp);
+ *                                         
+ *                                          temp = "";
+ *                                           
+ *                                            
+ *                                             */
 

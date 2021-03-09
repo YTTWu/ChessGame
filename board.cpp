@@ -351,11 +351,11 @@ void Board::printPrompt()
         int destCol=0;
         
         if(counter % 2 ==0){
-            std::cout << "White's turn to play (lower case):" << std::endl;
+            std::cout << "White's turn to play (lower case pieces):" << std::endl;
             color = 'w';
         }
         else {
-            std::cout << "Black's turn to play (upper case): " << std::endl;
+            std::cout << "Black's turn to play (upper case pieces): " << std::endl;
             color = 'b';
         }
         

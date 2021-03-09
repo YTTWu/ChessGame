@@ -71,7 +71,7 @@ int main (){
     chessboard->printBoard();
     chessboard->printPrompt();
     
-
+    delete chessboard;
 
 
 

@@ -13,21 +13,41 @@ public:
     
     bool visitKnight(Knight *knight, int d_x, int d_y)
     {
-        return false;
+        int temp_x = knight->get_X();
+        int temp_y = knight->get_Y();
+        if ((abs(temp_x - d_x) == 2 && abs(temp_y - d_y) == 1) || (abs(temp_x - d_x)) == 1 && abs(temp_y - d_y) == 2){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
+    
     {
+        
+        
+        
         int temp_x = bishop->get_X();
+        
         int temp_y = bishop->get_Y();
         
-        if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
+        
+        
+        if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))
+            
         {
+            
             return true;
+            
         }
+        
         else return false;
+        
+        
+        
     }
-    
     
     bool visitPawn(Pawn *pawn, int d_x, int d_y)
     {
@@ -38,17 +58,17 @@ public:
         {
             if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
             {
-                pawn->setPawn_isMoved();
+                
                 return true;
             }
             else
@@ -60,10 +80,12 @@ public:
         {
             if(d_y == temp_y && abs(d_x - temp_x) == 1)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             else if(d_y == temp_y && abs(d_x - temp_x) == 2)
             {
+                pawn->setPawn_isMoved();
                 return true;
             }
             else
@@ -106,41 +128,39 @@ public:
     bool visitKing(King *king, int d_x, int d_y)
     {
         int temp_x = king->get_X();
-                int temp_y = king->get_Y();
-                
-                if (abs(d_x - temp_x == 1 && d_y == temp_y))
-                    {
-                    return true;
-                    }
-               else if (abs(d_y - temp_y == 1 && d_x == temp_x))
-                    {
-                        return true;
-                    }
-                else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
-                    {
-                    return true;
-                    }
-                    else return false;
+        int temp_y = king->get_Y();
+        
+        if (abs(d_x - temp_x == 1 && d_y == temp_y))
+        {
+            return true;
+        }
+        else if (abs(d_y - temp_y == 1 && d_x == temp_x))
+        {
+            return true;
+        }
+        else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
+        {
+            return true;
+        }
+        else return false;
     }
     
-    virtual bool visitQueen(Queen *queen, int d_x, int d_y )
+     bool visitQueen(Queen *queen, int d_x, int d_y )
     {
         int temp_x = queen->get_X();
         int temp_y = queen->get_Y();
-        int xIncrement;
-        int yIncrement;
-        if((temp_x != d_x || temp_y != d_y) )
-        { // if not going side to side or up(diagonal)
-            if(temp_x = d_x  && (abs(d_y - temp_y)<=7))
-            {   // going up or down
-                return true;
-            }
-            if(temp_y = d_y  && (abs(d_x - temp_x)<=7))
-            { // side
-                return true;
-            }
+        
+        
+        if(temp_x == d_x  && (abs(d_y - temp_y)<=7))
+        {   // going up or down
+            return true;
         }
-        else if ((abs(d_x - temp_x )== abs(d_y - temp_y) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7)))
+        else if(temp_y == d_y  && (abs(d_x - temp_x)<=7))
+        { // side
+            return true;
+        }
+        
+        else if ((abs(d_x - temp_x )== abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))
         { //diagonal
             return true;
         }

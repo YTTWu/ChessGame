@@ -1,3 +1,4 @@
+
 #include "board.hpp"
 
 
@@ -117,20 +118,23 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
     if(piece->accept(visitor, d_x, d_y) && pathCheck(piece, d_x, d_y)){
         if( board[d_x][d_y] != nullptr){
             if(board[d_x][d_y]->get_color() ==  piece->get_color()){
-                std::cout << "your piece there not movable"<< std::endl;
+                std::cout << "The piece at this spot is not movable"<< std::endl;
+                return false;
             }
             else{
                 std::cout << board[d_x][d_y]->get_color() << " ";
                 std::cout << board[d_x][d_y]->get_name() << " was killed " << std::endl;
             }
+           
         }
-        
         board[d_x][d_y] = piece;
         board[piece->get_X()][piece->get_Y()] = nullptr;
         piece->set_X(d_x);
         piece->set_Y(d_y);
         printBoard();
         return true;
+        
+       
     }
     
         return false;
@@ -154,11 +158,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 while(temp_x != d_x)
                 {
                     temp_x += 1;
-                    if(board[temp_x][temp_y] == NULL)
-                    {
-                        continue;
-                    }
-                    else
+                    if(board[temp_x][temp_y] != NULL)
                     {
                         return false;
                     }
@@ -170,17 +170,43 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
             {
                 while(temp_x != d_x)
                 {
-                    temp_y -= 1;
-                    if(board[temp_x][temp_y] == NULL)
-                    {
-                        continue;
-                    }
-                    else
+                    temp_x -= 1;
+                    if(board[temp_x][temp_y] != NULL)
                     {
                         return false;
                     }
-                    return true;
                 }
+                return true;
+            }
+            
+        }
+        
+        if(temp_x == d_x)
+        {
+            if(temp_y < d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            if(temp_y > d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
             }
             
         }
@@ -320,4 +346,38 @@ bool Board::is_number(const std::string& s)
 }
 
 
+
+
+
+
+
+/*
+ *  
+ *   std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
+ *    std::getline(std::cin, temp);
+ *     temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+ *      
+ *       if(!is_number(temp))
+ *        {
+ *             std::cout << "invalid input, please check coordinates again.\n";
+ *                  continue;
+ *                   }
+ *                    currRow = std::stoi(temp);
+ *                     
+ *                      
+ *                       std::cout << " Column of piece you want to move (0-7): " << std::endl;
+ *                        std::getline(std::cin, temp);
+ *                         temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+ *                          
+ *                           if(!is_number(temp))
+ *                            {
+ *                                 std::cout << "invalid input, please check coordinates again.\n";
+ *                                      continue;
+ *                                       }
+ *                                        currCol = std::stoi(temp);
+ *                                         
+ *                                          temp = "";
+ *                                           
+ *                                            
+ *                                             */
 

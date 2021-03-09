@@ -111,7 +111,7 @@ void Board::printBoard(){
         std::cout << i << "|___|___|___|___|___|___|___|___|" << std::endl ;
         
     }
-    
+     std::cout << "  0    1   2   3   4   5   6   7" << std::endl;
 }
 
 

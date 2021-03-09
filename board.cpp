@@ -302,6 +302,8 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
 
 void Board::printPrompt()
 {
+    int counter = 0;
+    char color;
     do
     {
         
@@ -311,9 +313,19 @@ void Board::printPrompt()
         int destRow=0;
         int destCol=0;
         
+	 if(counter % 2 ==0){
+            std::cout << "White's turn to play (lower case):" << std::endl;
+            color = 'w';
+        }
+        else {
+            std::cout << "Black's turn to play (upper case): " << std::endl;
+            color = 'b';
+        }
+	
         std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
         std::cin >> temp;
         
+	
         if(!is_number(temp))
         {
             std::cout << "invalid input, please check coordinates again.\n\n";
@@ -330,13 +342,17 @@ void Board::printPrompt()
             continue;
         }
         currCol = std::stoi(temp);
-        
+       
+	 
         if(userInputCheck(currRow) && userInputCheck(currCol))
         {
             if(board[currRow][currCol] != NULL)
             {
                 ChessPiece* curr = getPiece(currRow, currCol);
-                
+                 if(curr->get_color() != color){
+                    std::cout << "Not your piece: Choose a piece of your color. "<< std::endl;
+                    continue;
+                }
                 std::cout <<"Moving Piece " << curr->get_name()<< " at spot (" << currRow << ","<< currCol << ")"<< std:: endl;
                 
                 std:: cout << " Row of where you want to move (0-7) : " << std::endl;
@@ -348,7 +364,8 @@ void Board::printPrompt()
                 if(checkAccept(curr, destRow, destCol) == true)
                 {
                     std::cout << " Piece moved to new spot\n\n" << std::endl;
-                    continue;
+                    counter = counter +1 ;
+		    continue;
                 }
                 
             }

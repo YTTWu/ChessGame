@@ -22,6 +22,12 @@
 class Board{
 private:
 ChessPiece *board[8][8];
+int w_k_x;
+int w_k_y;
+int b_k_x;
+int b_k_y;
+bool isThereAWinner = false;
+
 
 public:
 Board();

@@ -69,38 +69,8 @@ int main (){
     Board* chessboard = new Board();
     chessboard->resetBoard();
     chessboard->printBoard();
-    while(true)
-    {
-
-
-int currRow=0;
-int currCol=0;
-int destRow=0;
-int destCol=0;
-std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
-std::cin >> currRow;
-
-std::cout << " Column of piece you want to move (0-7): " << std::endl;
-std::cin >> currCol;
-
-ChessPiece* curr = chessboard->getPiece(currRow, currCol);
-std::cout <<"Moving Piece " << curr->get_name()<< " at spot (" << currRow << ","<< currCol << ")"<< std:: endl;
-
-std:: cout << " X-Coordinate of where you want to move (0-7) : " << std::endl;
-std::cin >> destRow;
-
-std::cout << " y-Coordinate of where you want to move (0-7): " << std::endl;
-std::cin >> destCol;
-
-if(chessboard->checkAccept(curr, destRow, destCol) == true) {
-    std::cout << " Piece moved to new spot" << std::endl;
+    chessboard->printPrompt();
     
-}
-else { std::cout << " Invalid move" << std::endl;}
-std:: cout << "checker";
-std::cout << curr->get_X();
-
-    }
 
 
 

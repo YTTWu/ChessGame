@@ -3,10 +3,13 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include <ios>
+#include <limits>
+#include <algorithm>
 #include "pawn.cpp"
-#include "knight.cpp"
 #include "rook.cpp"
 #include "queen.cpp"
+#include "knight.cpp"
 #include "king.cpp"
 #include "bishop.cpp"
 #include "piecevisitor.hpp"
@@ -27,8 +30,9 @@ void printBoard();//needs tests and check if built correctly
 bool checkAccept(ChessPiece *piece, int d_x, int d_y);
 bool checkMate(ChessPiece *piece, int d_x, int d_y);
 bool pathCheck(ChessPiece *piece, int d_x, int d_y);
-
-
+void printPrompt();
+bool userInputCheck(int temp);
+bool is_number(const std::string& s);
 };
 
 #endif

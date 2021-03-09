@@ -130,11 +130,15 @@ public:
         int temp_x = king->get_X();
         int temp_y = king->get_Y();
         
-        if (abs(d_x - temp_x == 1 && d_y == temp_y))
+        if (abs(d_x - temp_x == 1 && d_y == temp_y)) //b up and down
         {
             return true;
         }
-        else if (abs(d_y - temp_y == 1 && d_x == temp_x))
+	else if (abs(temp_x - d_x == 1 && d_y == temp_y)) //w up and down
+        {
+            return true;
+        }
+        else if (abs(d_y - temp_y == 1 && d_x == temp_x)) //side right 
         {
             return true;
         }

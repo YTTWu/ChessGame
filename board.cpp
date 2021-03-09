@@ -1,4 +1,3 @@
-
 #include "board.hpp"
 
 
@@ -146,6 +145,19 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
         board[piece->get_X()][piece->get_Y()] = nullptr;
         piece->set_X(d_x);
         piece->set_Y(d_y);
+        
+        if(d_x == b_k_x && d_y == b_k_y)
+        {
+            isThereAWinner = true;
+            std::cout << "WHITE WIN!!!\n\n\n";
+            
+        }
+        if(d_x == w_k_x && d_y == w_k_y)
+        {
+            isThereAWinner = true;
+            std::cout << "BLACK WIN!!!\n\n\n";
+        }
+        
         if(piece->get_color() == 'b' && piece->get_name() == 'K')
         {
             b_k_x = d_x;
@@ -155,15 +167,6 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
         {
             w_k_x = d_x;
             w_k_y = d_y;
-        }
-        if(d_x == b_k_x && d_y == b_k_y)
-        {
-            std::cout << "WHITE WIN!!!\n\n\n";
-            
-        }
-        if(d_x == w_k_x && d_y == w_k_y)
-        {
-            std::cout << "BLACK WIN!!!\n\n\n";
         }
         printBoard();
         return true;
@@ -356,6 +359,7 @@ void Board::printPrompt()
         }
         else {
             std::cout << "Black's turn to play (upper case pieces): " << std::endl;
+
             color = 'b';
         }
         
@@ -413,7 +417,7 @@ void Board::printPrompt()
         
         
     }
-    while (true);
+    while (!isThereAWinner);
     
     
     
@@ -440,11 +444,4 @@ bool Board::is_number(const std::string& s)
     return !s.empty() && find_if(s.begin(),
                                  s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
 }
-
-
-
-
-
-
-
 

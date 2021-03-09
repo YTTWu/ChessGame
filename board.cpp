@@ -133,8 +133,12 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
             }
             else
             {
-                std::cout << board[d_x][d_y]->get_color() << " ";
-                std::cout << board[d_x][d_y]->get_name() << " was killed " << std::endl;
+                if( board[d_x][d_y]->get_color() == 'w' ){
+                std::cout << "White " << board[d_x][d_y]->get_name() << " was killed " << std::endl;
+                }
+                else {
+                    std::cout << "Black " << board[d_x][d_y]->get_name() << " was killed " << std::endl;
+                    
             }
             
         }

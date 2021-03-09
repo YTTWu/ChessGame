@@ -66,7 +66,11 @@ void Board::resetBoard(){
     board[7][2] = b3;
     board[7][5] = b4;
     board[0][3]= k1;
+    b_k_x = 0;
+    b_k_y = 3;
     board[7][3]= k2;
+    w_k_x = 7;
+    w_k_y = 3;
     board[0][4]= q1;
     board[7][4]= q2;
     board[1][0]= p1;
@@ -113,31 +117,60 @@ void Board::printBoard(){
 
 
 bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
-    PieceVisitor* visitor = new PieceVisitor();
+    PieceVisitor* pVisitor = new PieceVisitor();
     
-    if(piece->accept(visitor, d_x, d_y) && pathCheck(piece, d_x, d_y)){
-        if( board[d_x][d_y] != nullptr){
-            if(board[d_x][d_y]->get_color() ==  piece->get_color()){
+    
+    if(piece->accept(pVisitor, d_x, d_y) && pathCheck(piece, d_x, d_y))
+    {
+        
+        
+        if( board[d_x][d_y] != nullptr)
+        {
+            if(board[d_x][d_y]->get_color() ==  piece->get_color())
+            {
                 std::cout << "The piece at this spot is not movable"<< std::endl;
                 return false;
             }
-            else{
+            else
+            {
                 std::cout << board[d_x][d_y]->get_color() << " ";
                 std::cout << board[d_x][d_y]->get_name() << " was killed " << std::endl;
             }
-           
+            
         }
         board[d_x][d_y] = piece;
         board[piece->get_X()][piece->get_Y()] = nullptr;
         piece->set_X(d_x);
         piece->set_Y(d_y);
+        if(piece->get_color() == 'b' && piece->get_name() == 'K')
+        {
+            b_k_x = d_x;
+            b_k_y = d_y;
+        }
+        if(piece->get_color() == 'w' && piece->get_name() == 'k')
+        {
+            w_k_x = d_x;
+            w_k_y = d_y;
+        }
+        if(d_x == b_k_x && d_y == b_k_y)
+        {
+            std::cout << "WHITE WIN!!!\n\n\n";
+            
+        }
+        if(d_x == w_k_x && d_y == w_k_y)
+        {
+            std::cout << "BLACK WIN!!!\n\n\n";
+        }
         printBoard();
         return true;
         
-       
+        
+        
+        
+        
     }
     
-        return false;
+    return false;
     
 }
 
@@ -216,22 +249,28 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
     {
         int temp_y = piece->get_Y();
         int temp_x = piece->get_X();
-        if(piece->get_color() == 'w')
+        
+        if(board[d_x][d_y] == NULL)
         {
-            if(board[temp_x-1][temp_y] != NULL)
+            if(piece->get_color() == 'w')
             {
-                return false;
+                if(board[temp_x-1][temp_y] != NULL)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
-        if(piece->get_color() == 'b')
-        {
-            if(board[temp_x+1][temp_y] != NULL)
+            if(piece->get_color() == 'b')
             {
-                return false;
+                if(board[temp_x+1][temp_y] != NULL)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
         }
+        
+        return true;
         
     }
     
@@ -319,7 +358,7 @@ void Board::printPrompt()
         
     }
     while (true);
-        
+    
     
     
 }
@@ -342,7 +381,7 @@ bool Board::userInputCheck(int temp)
 bool Board::is_number(const std::string& s)
 {
     return !s.empty() && find_if(s.begin(),
-                                      s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+                                 s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
 }
 
 
@@ -351,33 +390,4 @@ bool Board::is_number(const std::string& s)
 
 
 
-/*
- *  
- *   std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
- *    std::getline(std::cin, temp);
- *     temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
- *      
- *       if(!is_number(temp))
- *        {
- *             std::cout << "invalid input, please check coordinates again.\n";
- *                  continue;
- *                   }
- *                    currRow = std::stoi(temp);
- *                     
- *                      
- *                       std::cout << " Column of piece you want to move (0-7): " << std::endl;
- *                        std::getline(std::cin, temp);
- *                         temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
- *                          
- *                           if(!is_number(temp))
- *                            {
- *                                 std::cout << "invalid input, please check coordinates again.\n";
- *                                      continue;
- *                                       }
- *                                        currCol = std::stoi(temp);
- *                                         
- *                                          temp = "";
- *                                           
- *                                            
- *                                             */
 

@@ -367,7 +367,7 @@ void Board::printPrompt()
         std::cin >> temp;
         if(temp == "F" || temp == "f")
         {
-            std::cout << "YOU SUCK LOOSER!!!\n\n";
+            std::cout << "YOU SUCK LOSER!!!\n\n";
             break;
         }
         

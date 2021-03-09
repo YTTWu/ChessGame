@@ -26,7 +26,7 @@ int w_k_x;
 int w_k_y;
 int b_k_x;
 int b_k_y;
-
+bool isThereAWinner = false;
 
 
 public:
@@ -36,6 +36,7 @@ ChessPiece* getPiece(int x, int y);
 void resetBoard();
 void printBoard();
 bool checkAccept(ChessPiece *piece, int d_x, int d_y);
+bool checkMate(ChessPiece *piece, int d_x, int d_y);
 bool pathCheck(ChessPiece *piece, int d_x, int d_y);
 void printPrompt();
 bool userInputCheck(int temp);

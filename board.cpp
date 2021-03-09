@@ -296,9 +296,79 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
     }
     
     return false;
+
+
+
+if(piece->get_name() == 'B' || piece->get_name() == 'b')
+{
+
+	 if ((temp_y + 1 == d_y - 1) && (temp_x + 1 == d_x - 1)) //b  diagonal down right
+		{
+		if((temp_x < d_x) && (temp_y < d_y))
+		 {
+		  while((temp_x != d_x) && (temp_y != d_y))
+		   {
+		    temp_x += 1;
+		    temp_y += 1;
+			 if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+	  if((temp_x > d_x) && (temp_y > d_y))      //w diagonal upper  left 
+            {
+                while((temp_x != d_x) && (temp_y != d_y))
+                {
+                    temp_x -= 1;
+		    temp_y -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        }
+
+	if ((temp_y - 1 == d_y + 1) && (temp_x + 1 == d_x - 1)) //b diagonal down left  
+	 {
+                if((temp_x < d_x) && (temp_y > d_y))
+                 {
+                  while((temp_x != d_x) && (temp_y != d_y))
+                   {
+                    temp_x += 1;
+                    temp_y -= 1;
+                         if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+	
+	
+	  if((temp_x > d_x) && (temp_y < d_y)) //w diagonal upper right   
+		 {
+                while((temp_x != d_x) && (temp_y != d_y))
+                {
+                    temp_x -= 1;
+                    temp_y += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+        }
+
+    }
 }
-
-
 
 void Board::printPrompt()
 {

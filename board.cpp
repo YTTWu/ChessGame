@@ -354,17 +354,22 @@ void Board::printPrompt()
         int destCol=0;
         
         if(counter % 2 ==0){
-            std::cout << "White's turn to play (lower case pieces):" << std::endl;
+            std::cout << "White's turn to play (lower case pieces):   " << std::endl;
             color = 'w';
         }
         else {
-            std::cout << "Black's turn to play (upper case pieces): " << std::endl;
+            std::cout << "Black's turn to play (upper case pieces):   " << std::endl;
 
             color = 'b';
         }
         
-        std:: cout << " Row of piece you want to move (0-7) : " << std::endl;
+        std:: cout << " Row of piece you want to move (0-7) : (Enter F to forfeit)" << std::endl;
         std::cin >> temp;
+        if(temp == "F" || temp == "f")
+        {
+            std::cout << "YOU SUCK LOOSER!!!\n\n";
+            break;
+        }
         
         if(!is_number(temp))
         {

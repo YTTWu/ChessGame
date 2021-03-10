@@ -359,7 +359,68 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
 
 
     }
-    
+
+
+
+if(temp_y == d_y)
+        {
+            if(temp_x < d_x)
+            {
+                while(temp_x != d_x)
+                {
+                    temp_x += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            if(temp_x > d_x)
+            {
+                while(temp_x != d_x)
+                {
+                    temp_x -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        }
+        
+        if(temp_x == d_x)
+        {
+            if(temp_y < d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y += 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            if(temp_y > d_y)
+            {
+                while(temp_y != d_y)
+                {
+                    temp_y -= 1;
+                    if(board[temp_x][temp_y] != NULL)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+        }    
    
 if(piece->get_name() == 'B' || piece->get_name() == 'b')
 {

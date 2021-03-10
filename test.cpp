@@ -597,6 +597,6 @@ TEST(PieceVisitor, visitBishopFails)
          EXPECT_EQ(b, false);
          EXPECT_EQ(a, false);
 }
-                                                                                                                     603,1         Bot
+                                                                                                             
 
 

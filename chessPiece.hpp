@@ -11,6 +11,8 @@
 class ChessPiece
 {
 public:
+    virtual ~ChessPiece() = default;
+
     void set_X(int x_)
     {
         x = x_;

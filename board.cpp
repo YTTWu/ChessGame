@@ -9,7 +9,21 @@ Board::Board(){
         }
     }
 }
-Board::~Board(){}
+Board::~Board()
+{
+	for (int i = 0; i < 8; i++)
+	{
+        	for (int j = 0; j < 8; j++)
+		{
+            		if(board[i][j] != nullptr)
+            		{
+                		delete board[i][j]; // delete stored pointer
+            		}
+            
+        	}
+       
+    	}	
+}
 
 ChessPiece* Board::getPiece(int x, int y){
     
@@ -141,10 +155,14 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
             }
             
         }
+
         board[d_x][d_y] = piece;
+	
+
         board[piece->get_X()][piece->get_Y()] = nullptr;
         piece->set_X(d_x);
         piece->set_Y(d_y);
+	delete pVisitor;
         
         if(d_x == b_k_x && d_y == b_k_y)
         {

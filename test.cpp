@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 }
 
 
-TEST(ChessPiece, pwan)
+TEST(ChessPiece, pwan1)
 {
     int temp;
     
@@ -27,7 +27,7 @@ TEST(ChessPiece, pwan)
 
 }
 
-TEST(ChessPiece, pwan1)
+TEST(ChessPiece, pwan2)
 {
     int temp;
 
@@ -40,7 +40,7 @@ TEST(ChessPiece, pwan1)
 }
 
 
-TEST(ChessPiece, pwa2)
+TEST(ChessPiece, pwa3)
 {
     char temp;
 
@@ -55,7 +55,7 @@ TEST(ChessPiece, pwa2)
 
 
 
-TEST(ChessPiece, pwan3)
+TEST(ChessPiece, pwan4)
 {
     char temp;
 
@@ -70,7 +70,7 @@ TEST(ChessPiece, pwan3)
 
 
 
-TEST(ChessPiece, rook)
+TEST(ChessPiece, rook1)
 {
     int temp;
 
@@ -86,7 +86,7 @@ TEST(ChessPiece, rook)
 
 
 
-TEST(ChessPiece, rook1)
+TEST(ChessPiece, rook2)
 {
     int temp;
 
@@ -100,7 +100,7 @@ TEST(ChessPiece, rook1)
 }
 
 
-TEST(ChessPiece, rook2)
+TEST(ChessPiece, rook3)
 {
     char temp;
 
@@ -114,7 +114,7 @@ TEST(ChessPiece, rook2)
 }
 
 
-TEST(ChessPiece, rook3)
+TEST(ChessPiece, rook4)
 {
     char temp;
 
@@ -221,6 +221,47 @@ TEST(PieceVisitor, visitRook2)
     ChessPiece *rook = new Rook(0,0,'b','R');
 
     temp = rook->accept(visitor, 7,0);
+
+    EXPECT_EQ(temp, true);
+}
+
+
+TEST(PieceVisitor, visitRook3)
+{
+    bool temp;
+
+    PieceVisitor *visitor = new PieceVisitor();
+
+    ChessPiece *rook = new Rook(7,7,'b','R');
+
+    temp = rook->accept(visitor, 1,6);
+
+    EXPECT_EQ(temp, false);
+}
+
+
+TEST(PieceVisitor, visitRook4)
+{
+    bool temp;
+
+    PieceVisitor *visitor = new PieceVisitor();
+
+    ChessPiece *rook = new Rook(6,6,'b','R');
+
+    temp = rook->accept(visitor, 4,6);
+
+    EXPECT_EQ(temp, true);
+}
+
+TEST(PieceVisitor, visitRook5)
+{
+    bool temp;
+
+    PieceVisitor *visitor = new PieceVisitor();
+
+    ChessPiece *rook = new Rook(2,4,'b','R');
+
+    temp = rook->accept(visitor, 2,7);
 
     EXPECT_EQ(temp, true);
 }

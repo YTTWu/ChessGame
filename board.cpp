@@ -195,7 +195,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
         {
             if(temp_x < d_x)
             {
-                while(temp_x != d_x)
+                while(temp_x != d_x - 1)
                 {
                     temp_x += 1;
                     if(board[temp_x][temp_y] != NULL)
@@ -208,7 +208,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
             
             if(temp_x > d_x)
             {
-                while(temp_x != d_x)
+                while(temp_x != d_x + 1)
                 {
                     temp_x -= 1;
                     if(board[temp_x][temp_y] != NULL)
@@ -225,7 +225,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
         {
             if(temp_y < d_y)
             {
-                while(temp_y != d_y)
+                while(temp_y != d_y - 1)
                 {
                     temp_y += 1;
                     if(board[temp_x][temp_y] != NULL)
@@ -238,7 +238,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
             
             if(temp_y > d_y)
             {
-                while(temp_y != d_y)
+                while(temp_y != d_y + 1)
                 {
                     temp_y -= 1;
                     if(board[temp_x][temp_y] != NULL)

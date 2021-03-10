@@ -138,22 +138,22 @@ public:
     
     bool visitKing(King *king, int d_x, int d_y)
     {
-        int temp_x = king->get_X();
-        int temp_y = king->get_Y();
-        
-        if (abs(d_x - temp_x == 1 && d_y == temp_y))
-        {
-            return true;
-        }
-        else if (abs(d_y - temp_y == 1 && d_x == temp_x))
-        {
-            return true;
-        }
-        else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
-        {
-            return true;
-        }
-        else return false;
+                int temp_x = king->get_X();
+                int temp_y = king->get_Y();
+                
+                if (abs(d_x - temp_x) == 1 && d_y == temp_y)
+                    {
+                    return true;
+                    }
+               else if (abs(d_y - temp_y) == 1 && d_x == temp_x)
+                    {
+                        return true;
+                    }
+                else if(abs(d_x - temp_x)== abs(d_y - temp_y) && abs(d_x - temp_x)<=1 && abs(d_y - temp_y)<=1)
+                    {
+                    return true;
+                    }
+                    else return false;
     }
     
      bool visitQueen(Queen *queen, int d_x, int d_y )

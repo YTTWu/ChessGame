@@ -83,6 +83,17 @@ public:
                 pawn->setPawn_isMoved();
                 return true;
             }
+	    if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
+            {
+                
+                return true;
+            }
+            if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
+            {
+                
+                return true;
+            }
+
             else if(d_y == temp_y && abs(d_x - temp_x) == 2)
             {
                 pawn->setPawn_isMoved();

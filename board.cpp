@@ -285,13 +285,15 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
     {
         return true;
     }
+
+
     
-    if(piece->get_name() == 'Q' || piece->get_name() == 'q')
+ if(piece->get_name() == 'Q' || piece->get_name() == 'q')
     {
         
 	if ((temp_y + 1 == d_y - 1) && (temp_x + 1 == d_x - 1))
 	 {
-                if((temp_x < d_x) && (temp_y > d_y))
+                if((temp_x < d_x) && (temp_y < d_y))
                  {
                   while((temp_x != d_x) && (temp_y != d_y))
                    {
@@ -305,7 +307,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 return true;
             }
 
-	 if((temp_x > d_x) && (temp_y > d_y)) 
+	 if((temp_x < d_x) && (temp_y > d_y)) //b diagonal down left 
 	
 	{
                 while((temp_x != d_x) && (temp_y != d_y))
@@ -322,13 +324,13 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
 
         }
 		
-	if ((temp_y - 1 == d_y + 1) && (temp_x + 1 == d_x - 1)) 
+	if ((temp_y - 1 == d_y + 1) && (temp_x + 1 == d_x - 1)) //w  upper left 
 	{
                 if((temp_x < d_x) && (temp_y > d_y))
                  {
                   while((temp_x != d_x) && (temp_y != d_y))
                    {
-                    temp_x += 1;
+                    temp_x -= 1;
                     temp_y -= 1;
                          if(board[temp_x][temp_y] != NULL)
                     {
@@ -338,7 +340,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 return true;
             }
 		
-		 if((temp_x > d_x) && (temp_y < d_y)) 
+	if((temp_x > d_x) && (temp_y < d_y)) //w upper right 
 	
 		{
                 while((temp_x != d_x) && (temp_y != d_y))
@@ -359,7 +361,6 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
     }
     
    
-
 if(piece->get_name() == 'B' || piece->get_name() == 'b')
 {
 
@@ -378,6 +379,7 @@ if(piece->get_name() == 'B' || piece->get_name() == 'b')
                 }
                 return true;
             }
+	}
             
 	  if((temp_x > d_x) && (temp_y > d_y))      //w diagonal upper  left 
             {
@@ -393,7 +395,6 @@ if(piece->get_name() == 'B' || piece->get_name() == 'b')
                 return true;
             }
             
-        }
 
 	if ((temp_y - 1 == d_y + 1) && (temp_x + 1 == d_x - 1)) //b diagonal down left  
 	 {
@@ -410,7 +411,7 @@ if(piece->get_name() == 'B' || piece->get_name() == 'b')
                 }
                 return true;
             }
-	
+	}
 	
 	  if((temp_x > d_x) && (temp_y < d_y)) //w diagonal upper right   
 		 {
@@ -425,10 +426,9 @@ if(piece->get_name() == 'B' || piece->get_name() == 'b')
                 }
                 return true;
             }
+ 	 }
 
-        }
 
-    }
 }
 
 void Board::printPrompt()

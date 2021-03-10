@@ -7,7 +7,6 @@
 #include <limits>
 #include <algorithm>
 #include "pawn.cpp"
-
 #include "rook.cpp"
 #include "queen.cpp"
 #include "knight.cpp"
@@ -15,7 +14,6 @@
 #include "bishop.cpp"
 
 #include "piecevisitor.hpp"
-#include "checkmateVisitor.hpp"
 
 
 

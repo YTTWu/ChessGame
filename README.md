@@ -49,3 +49,5 @@ We will use a visitor and strategy pattern for our chess game. The strategy patt
  > Instructions on installing and running your application
  ## Testing
  > We used googletests for our chessPiece function and all of it's child classes. We tested their 4 variables which were int x-coor, int y-coor, char name, char color. We also tested each pieces movement with the implementation of PieceVisitor. We tested a variety of valid and invalid coordinates and moves to see where the pieces could move to and could not. By playing the game continously and trying to move pieces everywhere, we found bugs and were able to update our classes and functions accordingly. 
+ > <img width="483" alt="testingpicpawnerror" src="https://user-images.githubusercontent.com/77029246/110769604-362c7100-820d-11eb-942a-08e11b68b3de.png">
+

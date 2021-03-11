@@ -24,7 +24,8 @@ We will use the visitor pattern to check if every move made is valid, this patte
 
 ## Class Diagram
  
- ![Alt text](chessGame uml.png)
+ <img width="814" alt="chessGame uml" src="https://user-images.githubusercontent.com/77029246/110758049-e9db3400-8200-11eb-84d2-142d9fc993d0.png">
+
  
 Class diagram description:
 

@@ -301,7 +301,7 @@ TEST(PieceVisitor, visitPawn4)
 
     temp = pawn->accept(visitor, 3,5);
 
-    EXPECT_EQ(temp, true);
+    EXPECT_EQ(temp, false);
 }
 
 

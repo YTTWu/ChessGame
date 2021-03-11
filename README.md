@@ -68,6 +68,13 @@ Winning the game.
 
 <img width="424" alt="win" src="https://user-images.githubusercontent.com/76971229/110771682-a20fd900-820f-11eb-9365-db6c71ed88c0.png">
 
+
+FULL GAME SUMMARY
+<img width="445" alt="game1" src="https://user-images.githubusercontent.com/77029246/110772913-fe272d00-8210-11eb-9048-dabb9ae77d46.png">
+<img width="456" alt="game2" src="https://user-images.githubusercontent.com/77029246/110772918-fff0f080-8210-11eb-9a65-5f617ec57bbe.png">
+<img width="435" alt="game3" src="https://user-images.githubusercontent.com/77029246/110772923-01221d80-8211-11eb-87ca-70bdb8de1433.png">
+<img width="423" alt="game4" src="https://user-images.githubusercontent.com/77029246/110772951-0a12ef00-8211-11eb-97d2-4ea204ce0242.png">
+
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing

@@ -44,7 +44,9 @@ We will use a visitor and strategy pattern for our chess game. The strategy patt
 
 Simple game resulting in win for white.
 <img width="499" alt="1" src="https://user-images.githubusercontent.com/76971229/110770709-7f30f500-820e-11eb-81d9-e5f94783cdb9.png">
+
 <img width="511" alt="2" src="https://user-images.githubusercontent.com/76971229/110770718-81934f00-820e-11eb-9a0c-ca0fdb468837.png">
+
 <img width="485" alt="3" src="https://user-images.githubusercontent.com/76971229/110770723-835d1280-820e-11eb-9f5d-482aba2af55c.png">
 
 

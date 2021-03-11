@@ -51,60 +51,112 @@ public:
     
     bool visitPawn(Pawn *pawn, int d_x, int d_y)
     {
-        int temp_x = pawn->get_X();
+       int temp_x = pawn->get_X();
         int temp_y = pawn->get_Y();
         
         if(pawn->getPawn_isMoved() == true)
         {
-            if(d_y == temp_y && abs(d_x - temp_x) == 1)
+            if(pawn->get_color() == 'w' || pawn->get_color() == 'W')
             {
+                if(d_y == temp_y && d_x - temp_x == -1)
+                {
+                    return true;
+                }
+                if(d_y - temp_y == -1 && d_x - temp_x == -1)
+                {
+                    
+                    return true;
+                }
+                if(d_y - temp_y == 1 && d_x - temp_x == -1)
+                {
+                    
+                    return true;
+                }
                 
-                return true;
-            }
-            if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
-            {
-                
-                return true;
-            }
-            if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
-            {
-                
-                return true;
-            }
-            else
-            {
-                return false;
+                if(pawn->get_color() == 'b' || pawn->get_color() == 'B')
+                {
+                    if(d_y == temp_y && d_x - temp_x == 1)
+                    {
+                        return true;
+                    }
+                    if(d_y - temp_y == -1 && d_x - temp_x == 1)
+                    {
+                        
+                        return true;
+                    }
+                    if(d_y - temp_y == 1 && d_x - temp_x == 1)
+                    {
+                        
+                        return true;
+                    }
+                }
             }
         }
         else
         {
-            if(d_y == temp_y && abs(d_x - temp_x) == 1)
+            if(pawn->get_color() == 'w' || pawn->get_color() == 'W')
             {
-                pawn->setPawn_isMoved();
-                return true;
-            }
-	    if(d_y - temp_y == -1 && abs(d_x - temp_x) == 1)
-            {
+                if(d_y == temp_y && d_x - temp_x == -1)
+                {
+                    pawn->setPawn_isMoved();
+                    return true;
+                }
                 
-                return true;
-            }
-            if(d_y - temp_y == 1 && abs(d_x - temp_x) == 1)
-            {
+                if(d_y - temp_y == -1 && d_x - temp_x == -1)
+                {
+                    
+                    return true;
+                }
+                if(d_y - temp_y == 1 && d_x - temp_x == -1)
+                {
+                    
+                    return true;
+                }
                 
-                return true;
+                if(d_y == temp_y && d_x - temp_x == -2)
+                {
+                    pawn->setPawn_isMoved();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            else if(d_y == temp_y && abs(d_x - temp_x) == 2)
+            
+            if(pawn->get_color() == 'b' || pawn->get_color() == 'B')
             {
-                pawn->setPawn_isMoved();
-                return true;
+                if(d_y == temp_y && d_x - temp_x == 1)
+                {
+                    pawn->setPawn_isMoved();
+                    return true;
+                }
+                
+                if(d_y - temp_y == -1 && d_x - temp_x == 1)
+                {
+                    
+                    return true;
+                }
+                if(d_y - temp_y == 1 && d_x - temp_x == 1)
+                {
+                    
+                    return true;
+                }
+                
+                if(d_y == temp_y && d_x - temp_x == 2)
+                {
+                    pawn->setPawn_isMoved();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            
+            
         }
-        
+        return false;
     }
     
     bool visitRook(Rook *rook, int d_x, int d_y)

@@ -41,9 +41,13 @@ We will use a visitor and strategy pattern for our chess game. The strategy patt
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
- > 
-<img width="601" alt="regendingvalgrind" src="https://user-images.githubusercontent.com/77029246/110769216-cae29f00-820c-11eb-9627-73fb32bc6eac.png">
+
+Simple game resulting in win for white.
+<img width="499" alt="1" src="https://user-images.githubusercontent.com/76971229/110770709-7f30f500-820e-11eb-81d9-e5f94783cdb9.png">
+<img width="511" alt="2" src="https://user-images.githubusercontent.com/76971229/110770718-81934f00-820e-11eb-9a0c-ca0fdb468837.png">
+<img width="485" alt="3" src="https://user-images.githubusercontent.com/76971229/110770723-835d1280-820e-11eb-9f5d-482aba2af55c.png">
+
+
 
  ## Installation/Usage
  > Instructions on installing and running your application

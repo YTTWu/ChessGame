@@ -45,5 +45,4 @@ We will use a visitor and strategy pattern for our chess game. The strategy patt
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+ > We used googletests for our chessPiece function and all of it's child classes. We tested their 4 variables which were int x-coor, int y-coor, char name, char color. We also tested each pieces movement with the implementation of PieceVisitor. We tested a variety of valid and invalid coordinates and moves to see where the pieces could move to and could not. By playing the game continously and trying to move pieces everywhere, we found bugs and were able to update our classes and functions accordingly. 

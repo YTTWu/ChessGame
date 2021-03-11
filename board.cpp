@@ -419,11 +419,29 @@ void Board::printPrompt()
                 std::cout <<"Moving Piece " << curr->get_name()<< " at spot (" << currRow << ","<< currCol << ")"<< std:: endl;
                 
                 std:: cout << " Row of where you want to move (0-7) : " << std::endl;
-                std::cin >> destRow;
+		std::cin >> temp;
                 
+                if(!is_number(temp))
+                {
+                    std::cout << "invalid input, please check coordinates again.\n\n";
+                    printBoard();
+                    continue;
+                }
+                destRow = std::stoi(temp);                
+
+
                 std::cout << " Column of where you want to move (0-7): " << std::endl;
-                std::cin >> destCol;
+                std::cin >> temp;
                 
+                if(!is_number(temp))
+                {
+                    std::cout << "invalid input, please check coordinates again.\n\n";
+                    printBoard();
+                    continue;
+                }
+                destCol = std::stoi(temp);
+		
+
                 if(checkAccept(curr, destRow, destCol) == true)
                 {
                     std::cout << " Piece moved to new spot\n\n" << std::endl;

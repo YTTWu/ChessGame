@@ -11,31 +11,26 @@ We plan on using C++ for our game via hammer.
 
  Our game will have the following input and ouput:
   Input: Two users will each take turns on deciding where to move their individual chess pieces on the game board by using algebraic notation.   
-  Output: Each player's moves and which coordinates their pieces move to will be displayed on a 2d board in the program. The board will be printed after every move.  Once the game is won by one of the two players,the player's name will be displayed as the winner. 
+  Output: Each player's moves and which coordinates their pieces move to will be updated and displayed on a new board in the program each time. The new board will be printed after every move.  Once the game is won by one of the two players,the side of the player(Black/White) will be displayed as the winner. 
  
   
  We will implement the following design patterns:
   
  1. Strategy -
-We chose this pattern to define each piece's movement since strategy patterns are used to manage algorithms and relationships between objects. Each individual piece will have its accept function implemenetation that is unique to it. A problem we will anticipate is making each piece move how its supposed to. To solve this, we will have a base abstract class which all classes can extend and have their own move implementations. 
+We chose this pattern to define each chess pieces. Since strategy patterns are used to manage algorithms and relationships between objects. Each individual piece will have its accept function implemenetation that is unique to it. A problem we will anticipate is making each piece move how its supposed to. To solve this, we will have a base abstract class which all classes can extend and have their own overrited implementation and movement implementations through visitor patterns. 
  
  2. Visitor - 
-We will use the visitor pattern to check if every move made is valid, this pattern will also determine if there is a check or a checkmate. Inside each type of pieces we have a accept method corresponded with the visit method. Since we have 6 different type we will have 6 unique visit method to check the user desired move is whether allowed within the Chess rule.
+We will use the visitor pattern to check if every move made is valid. Inside each type of pieces we have a accept method corresponded with the visit method. Since we have 6 different type we will have 6 unique visit method to check the user desired move is whether allowed within the Chess rule.
 
 ## Class Diagram
  
- <img width="814" alt="chessGame uml" src="https://user-images.githubusercontent.com/77029246/110758049-e9db3400-8200-11eb-84d2-142d9fc993d0.png">
-
+ ![OMT Diagram](https://github.com/cs100/final-project-cmena004-ywu352-vpate048/blob/master/ChessGame-v2.jpg?raw=true)
  
 Class diagram description:
 
-The diagram begins with ChessGame which will contain the methods to start the game(startGame()) and decide the winner(decideWinner()). This will also contain two player object to create player 1(*player_1) and 2(*player_2), as well as a board object(*board).
+The Board class will contain getPiece(int x, int y) to return the piece; resetBoard() to reset the piece coordinates; printBoard() to print out the board visually; checkAccept(ChessPiece *piece, int d_x, int d_y) to check if the move is within the chess rules; PathCheck(ChessPiece *piece, int d_x, int d_y) to make sure the move is valid on the board; printPrompt() to intereact with players; userInputCheck(int temp) and is_number(const std::string& s) are just small helper functions.
 
-The Board class will contain a printBoard()(print out the board visually) and printChessPieces()(a 2D vector visually). The vector will contain all 32 chess pieces. It will also contain a private member that is an object of ChessPiece. 
-
-Player will contain a move function that will determine current position and where the player wants to move to. 
-
-We will use a visitor and strategy pattern for our chess game. The strategy pattern will be used for the class ChessPiece. We use strategy pattern to decide what move() function to implement depend on the players choice. The visitor pattern will be used to check each move and determine if it is valid, it will also determine if there is a check or checkmate.
+We will use a visitor and strategy pattern for our chess game. The strategy pattern will be used for the class ChessPiece. We use strategy pattern to decide what move() function to implement depend on the players choice. The visitor pattern will actually implement the chess piece moving rule for each piece and make sure it is valid. 
 
 
  > ## Final deliverable

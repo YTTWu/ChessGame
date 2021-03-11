@@ -42,6 +42,9 @@ We will use a visitor and strategy pattern for our chess game. The strategy patt
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+ > 
+<img width="601" alt="regendingvalgrind" src="https://user-images.githubusercontent.com/77029246/110769216-cae29f00-820c-11eb-9627-73fb32bc6eac.png">
+
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing

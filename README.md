@@ -50,7 +50,23 @@ Simple game resulting in win for white.
 
 <img width="485" alt="3" src="https://user-images.githubusercontent.com/76971229/110770723-835d1280-820e-11eb-9f5d-482aba2af55c.png">
 
+Output messages:
 
+Invalid input by user (moving to an unavaible spot, move not capable by a piece).
+
+<img width="475" alt="invalid input" src="https://user-images.githubusercontent.com/76971229/110771680-a0461580-820f-11eb-8c0f-754dc1be5481.png">
+
+Wrong player makes a move.
+
+<img width="533" alt="wrong player move" src="https://user-images.githubusercontent.com/76971229/110771687-a3410600-820f-11eb-8282-f892641458cc.png">
+
+Forfeit the game.
+
+<img width="457" alt="forfeit" src="https://user-images.githubusercontent.com/76971229/110771675-9e7c5200-820f-11eb-948b-c28381aa7164.png">
+
+Winning the game.
+
+<img width="424" alt="win" src="https://user-images.githubusercontent.com/76971229/110771682-a20fd900-820f-11eb-9365-db6c71ed88c0.png">
 
  ## Installation/Usage
  > Instructions on installing and running your application

@@ -78,6 +78,11 @@ FULL GAME SUMMARY
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
- > We used googletests for our chessPiece function and all of it's child classes. We tested their 4 variables which were int x-coor, int y-coor, char name, char color. We also tested each pieces movement with the implementation of PieceVisitor. We tested a variety of valid and invalid coordinates and moves to see where the pieces could move to and could not. By playing the game continously and trying to move pieces everywhere, we found bugs and were able to update our classes and functions accordingly. 
+ > We used googletests for our chessPiece function and all of it's child classes. We tested their 4 variables which were int x-coor, int y-coor, char name, char color. We also tested each pieces movement with the implementation of PieceVisitor. We tested a variety of valid and invalid coordinates and moves to see where the pieces could move to and could not. By playing the game as users continously and trying to move pieces everywhere, we found bugs and were able to update our classes and functions accordingly. 
+ > example: finding pawn error 
  > <img width="483" alt="testingpicpawnerror" src="https://user-images.githubusercontent.com/77029246/110769604-362c7100-820d-11eb-942a-08e11b68b3de.png">
+ > VALGRIND with forfeit 
+ > <img width="688" alt="valgrindforfiet" src="https://user-images.githubusercontent.com/77029246/110773465-9f15e800-8211-11eb-962e-9d6458e190d1.png">
+> VALGRIND after a regular game
+> <img width="601" alt="regendingvalgrind" src="https://user-images.githubusercontent.com/77029246/110773362-84dc0a00-8211-11eb-95e2-94d53f44c95a.png">
 

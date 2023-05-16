@@ -26,27 +26,14 @@ public:
     bool visitBishop(Bishop *bishop, int d_x, int d_y)
     
     {
-        
-        
-        
-        int temp_x = bishop->get_X();
-        
+        int temp_x = bishop->get_X();   
         int temp_y = bishop->get_Y();
         
-        
-        
-        if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))
-            
+        if ((abs(d_x - temp_x ) == abs(d_y - temp_y)) && (abs(d_x - temp_x)<=7) && (abs(d_y - temp_y)<=7))    
         {
-            
-            return true;
-            
+            return true;   
         }
-        
         else return false;
-        
-        
-        
     }
     
     

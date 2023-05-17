@@ -128,13 +128,11 @@ void Board::printBoard(){
 bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
     PieceVisitor* pVisitor = new PieceVisitor();
     
-    
+    // check if the move is valid && if there are piece blocking the path (ex. pawn and rook)
     if(piece->accept(pVisitor, d_x, d_y) && pathCheck(piece, d_x, d_y))
     {
-        
-        
         if( board[d_x][d_y] != nullptr)
-        {
+        {   // cant take out your own piece
             if(board[d_x][d_y]->get_color() ==  piece->get_color())
             {
                 std::cout << "The piece at this spot is not movable"<< std::endl;
@@ -152,16 +150,20 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
             }
             
         }
-	
+	// release the memory at new location
 	delete board[d_x][d_y];
+	// make the new location point to the new piece
         board[d_x][d_y] = piece;
 	
+	// clear the old pointer
         board[piece->get_X()][piece->get_Y()] = nullptr;
-
+	
+	// update the new location for the piece
         piece->set_X(d_x);
         piece->set_Y(d_y);
 	delete pVisitor;
         
+	// if the new location == the location of king
         if(d_x == b_k_x && d_y == b_k_y)
         {
             isThereAWinner = true;
@@ -174,6 +176,7 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
             std::cout << "BLACK WIN!!!\n\n\n";
         }
         
+	// if the new piece is king, update its location
         if(piece->get_color() == 'b' && piece->get_name() == 'K')
         {
             b_k_x = d_x;
@@ -277,9 +280,9 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
     int temp_y = piece->get_Y();
     
     if(piece->get_name() == 'R' || piece->get_name() == 'r')
-    {
+    {	// vertical
         if(temp_y == d_y)
-        {
+        {   // 0 -> 7
             if(temp_x < d_x)
             {
                 while(temp_x != d_x - 1)
@@ -292,7 +295,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 }
                 return true;
             }
-            
+            // 7 -> 0
             if(temp_x > d_x)
             {
                 while(temp_x != d_x + 1)
@@ -307,9 +310,9 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
             }
             
         }
-        
+        // horizontal 
         if(temp_x == d_x)
-        {
+        {   // 0 -> 7
             if(temp_y < d_y)
             {
                 while(temp_y != d_y - 1)
@@ -322,7 +325,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 }
                 return true;
             }
-            
+            // 7 -> 0
             if(temp_y > d_y)
             {
                 while(temp_y != d_y + 1)
@@ -347,12 +350,13 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
         
         
         if(piece->get_color() == 'w')
-        {
+        {   // moving up 1 or 2 (init)
             if((board[temp_x-1][temp_y] != NULL && d_x == temp_x - 1 && d_y == temp_y)
                || (board[temp_x-1][temp_y] != NULL && d_x == temp_x - 2 && d_y == temp_y))
             {
                 return false;
             }
+	    // top right
             if(d_x == temp_x - 1 && d_y == temp_y + 1)
             {
                 if(board[d_x][d_y] != NULL)
@@ -361,6 +365,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 }
                 return false;
             }
+	    // top left
             if(d_x == temp_x - 1 && d_y == temp_y - 1)
             {
                 if(board[d_x][d_y] != NULL)
@@ -544,7 +549,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
         }
         
         if(temp_y == d_y)
-        {
+        {   // down
             if(temp_x < d_x)
             {
                 while(temp_x != d_x - 1)
@@ -557,7 +562,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 }
                 return true;
             }
-            
+            // up
             if(temp_x > d_x)
             {
                 while(temp_x != d_x + 1)
@@ -572,7 +577,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
             }
             
         }
-        
+        // right
         if(temp_x == d_x)
         {
             if(temp_y < d_y)
@@ -587,7 +592,7 @@ bool Board::pathCheck(ChessPiece *piece, int d_x, int d_y)
                 }
                 return true;
             }
-            
+            // left
             if(temp_y > d_y)
             {
                 while(temp_y != d_y + 1)
@@ -697,7 +702,7 @@ void Board::printPrompt()
                 }
                 destCol = std::stoi(temp);
 		
-
+		
                 if(checkAccept(curr, destRow, destCol) == true)
                 {
                     std::cout << " Piece moved to new spot\n\n" << std::endl;

@@ -45,19 +45,19 @@ public:
         if(pawn->getPawn_isMoved() == true)
         {
             if(pawn->get_color() == 'w' || pawn->get_color() == 'W')
-            {
+            {   // up 1
                 if(d_y == temp_y && d_x - temp_x == -1)
                 {
                     return true;
                 }
+                // up left
                 if(d_y - temp_y == -1 && d_x - temp_x == -1)
-                {
-                    
+                {                    
                     return true;
                 }
+                // up right
                 if(d_y - temp_y == 1 && d_x - temp_x == -1)
-                {
-                    
+                {                    
                     return true;
                 }
             }
@@ -69,39 +69,35 @@ public:
                     return true;
                 }
                 if(d_y - temp_y == -1 && d_x - temp_x == 1)
-                {
-                    
+                {                    
                     return true;
                 }
                 if(d_y - temp_y == 1 && d_x - temp_x == 1)
-                {
-                    
+                {                    
                     return true;
                 }
-            }
-            
+            }            
         }
         else
         {
             if(pawn->get_color() == 'w' || pawn->get_color() == 'W')
-            {
+            {   // up 1
                 if(d_y == temp_y && d_x - temp_x == -1)
                 {
                     pawn->setPawn_isMoved();
                     return true;
                 }
-                
+                // up left
                 if(d_y - temp_y == -1 && d_x - temp_x == -1)
-                {
-                    
+                {                    
                     return true;
                 }
+                // up right
                 if(d_y - temp_y == 1 && d_x - temp_x == -1)
-                {
-                    
+                {                    
                     return true;
                 }
-                
+                // up 2
                 if(d_y == temp_y && d_x - temp_x == -2)
                 {
                     pawn->setPawn_isMoved();
@@ -122,13 +118,11 @@ public:
                 }
                 
                 if(d_y - temp_y == -1 && d_x - temp_x == 1)
-                {
-                    
+                {                    
                     return true;
                 }
                 if(d_y - temp_y == 1 && d_x - temp_x == 1)
-                {
-                    
+                {                    
                     return true;
                 }
                 
@@ -141,9 +135,7 @@ public:
                 {
                     return false;
                 }
-            }
-            
-            
+            }                        
         }
         return false;
     }
@@ -153,7 +145,7 @@ public:
         int temp_x = rook->get_X();
         int temp_y = rook->get_Y();
         int temp;
-        
+        // left and right
         if(d_x == temp_x)
         {
             temp = d_y - temp_y;
@@ -164,6 +156,7 @@ public:
             
             return false;
         }
+        // up and down
         if(d_y == temp_y)
         {
             temp = d_x - temp_x;
@@ -171,8 +164,7 @@ public:
             if(-7 <= temp && temp <= 7)
             {
                 return true;
-            }
-            
+            }            
         }
         return false;
     }
@@ -181,15 +173,17 @@ public:
     {
         int temp_x = king->get_X();
         int temp_y = king->get_Y();
-        
+        // up and down
         if (abs(d_x - temp_x) == 1 && d_y == temp_y)
         {
             return true;
         }
+        // left and right
         else if (abs(d_y - temp_y) == 1 && d_x == temp_x)
         {
             return true;
         }
+        // diagonal
         else if(abs(d_x - temp_x)==(abs(d_y - temp_y) && (abs(d_x - temp_x)<=1) && (abs(d_y - temp_y)<=1)))
         {
             return true;

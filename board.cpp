@@ -184,6 +184,77 @@ bool Board::checkAccept ( ChessPiece *piece, int d_x, int d_y){
             w_k_x = d_x;
             w_k_y = d_y;
         }
+	
+	char userSwap;
+        if ((piece->get_X() == 0 && piece->get_color() == 'w' && piece->get_name() == 'p') || 
+            (piece->get_X() == 7 && piece->get_color() == 'b' && piece->get_name() == 'P'))
+        {
+            
+            std::cout << "Please choose the piece you want to replace with: (Ex. q/Q) ";
+            std::cin >> userSwap;
+            
+            ChessPiece *tmp = nullptr;
+            switch (userSwap)
+            {
+                case 'q':
+                    tmp = new Queen(piece->get_X(), piece->get_Y(), 'w', 'q');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'r':
+                    tmp = new Rook(piece->get_X(), piece->get_Y(), 'w', 'r');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'n':
+                    tmp = new Knight(piece->get_X(), piece->get_Y(), 'w', 'n');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'b':
+                    tmp = new Bishop(piece->get_X(), piece->get_Y(), 'w', 'b');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+                case 'Q':
+                    tmp = new Queen(piece->get_X(), piece->get_Y(), 'b', 'Q');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'R':
+                    tmp = new Rook(piece->get_X(), piece->get_Y(), 'b', 'R');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'N':
+                    tmp = new Knight(piece->get_X(), piece->get_Y(), 'b', 'N');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+
+                case 'B':
+                    tmp = new Bishop(piece->get_X(), piece->get_Y(), 'b', 'B');
+                    delete piece;
+                    piece = tmp;
+                    board[piece->get_X()][piece->get_Y()] = piece;
+                    break;
+                default:
+                    break;
+            }
+        }
+	    
         printBoard();
         return true;
         
